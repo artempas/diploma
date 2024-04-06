@@ -15,7 +15,7 @@ export class Connector{
     @Column('varchar', {length: 20})
         platform: Platforms;
 
-    @ManyToOne(() => Scenario, (s) => s.connectors)
+    @ManyToOne(() => Scenario, (s) => s.connectors, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         scenario: Scenario;
 
     @OneToMany(() => Chat, (c) => c.id)

@@ -17,10 +17,10 @@ export class Scenario {
     @Column('jsonb')
         logical_data: Element<any>[];
 
-    @Column('datetime', {default: 'NOW()'})
+    @Column('date', {default: 'NOW()'})
         created_at: string;
 
-    @ManyToOne(() => User, (user) => user.scenarios)
+    @ManyToOne(() => User, (user) => user.scenarios, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         user: User;
 
     @OneToMany(() => Connector, (con) => con.id)

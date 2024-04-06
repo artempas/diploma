@@ -17,7 +17,7 @@ export class Chat{
     @Column('jsonb')
         system_data?: SystemData;
 
-    @ManyToOne(() => Connector, (c) => c.chats)
+    @ManyToOne(() => Connector, (c) => c.chats, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         connector: Connector;
 
     @OneToMany(() => Message, (m) => m.id)

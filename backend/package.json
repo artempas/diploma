@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/main.ts"
+    "dev": "nodemon src/main.ts",
+    "env": "node_modules/@tka85/dotenvenc/bin/dotenvenc",
+    "typeorm": "typeorm-ts-node-commonjs -d \"src/datasource.ts\""
   },
   "author": "",
   "license": "ISC",
