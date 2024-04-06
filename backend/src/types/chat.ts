@@ -1,0 +1,1 @@
+export type SystemData = Record<any, any>
