@@ -77,8 +77,8 @@ async function login (
     if (!await compare(password, user.password)){
         return res.json({ok: false, error: 'Wrong password'}).status(403);
     }
-    const token: string = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
-    return res.json({ok: true, token});
+    res.header({'Set-cookie': `Auth:${sign(user.id, process.env.ACCESS_TOKEN_SECRET!)}`});
+    return res.json({ok: true});
 }
 
 /**

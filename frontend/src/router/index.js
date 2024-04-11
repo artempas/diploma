@@ -31,12 +31,12 @@ router.beforeEach(async (to) => {
     const authRequired = !publicPages.includes(to.path);
     const auth = useAuthStore();
     console.log(to.path)
-    if (authRequired && !auth.token) {
+    if (authRequired && !auth.is_authenticated) {
         console.log('redirecting to login')
         auth.returnUrl = to.fullPath;
         return '/login';
     }
-    if (!authRequired && auth.token){
+    if (!authRequired && auth.is_authenticated){
         console.log('redirecting logged')
         return '/scenarios'
     }

@@ -20,7 +20,7 @@ export default {
       if (!response.data.ok){
         this.errorMessage=response.data.error || 'Ошибка'
       } else {
-        this.$emit('auth-success', response.data.token)
+        this.$emit('auth-success', true)
       }
     }
   }
