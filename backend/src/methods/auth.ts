@@ -1,11 +1,14 @@
-import express from 'express';
+import express, {RequestHandler} from 'express';
 import Db from '../db';
-import {sign} from 'jsonwebtoken';
+import {sign, verify} from 'jsonwebtoken';
 import {compare, genSalt, hash} from 'bcrypt';
+import db from '../db';
 const usersRouter = express.Router();
 
 usersRouter.post('/auth', login);
 usersRouter.post('/register', register);
+
+const AUTH_COOKIE_NAME = 'Auth';
 
 /**
  * @openapi
@@ -133,8 +136,21 @@ async function register (req: express.Request<{username: string, password: strin
     const salt = await genSalt(10);
     const hashed_password = await hash(password, salt);
     const user = await Db.Users.createUser({username, password: hashed_password});
-    const token: string = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
-    return res.json({id: user.id, username: user.username, token});
+    res.header({'Set-cookie': `${AUTH_COOKIE_NAME}:${sign(user.id, process.env.ACCESS_TOKEN_SECRET!)}`});
+
+    return res.json({id: user.id, username: user.username});
 }
+
+export const authMiddleware: RequestHandler = async (req, res, next) => {
+    if (req.cookies[AUTH_COOKIE_NAME]){
+        const id = verify(req.cookies[AUTH_COOKIE_NAME], process.env.ACCESS_TOKEN_SECRET!).toString();
+        const user = await db.Users.findUser({ id });
+        if (user) {
+            req.user = user;
+            return next();
+        }
+    }
+    res.sendStatus(403);
+};
 
 export default usersRouter;
