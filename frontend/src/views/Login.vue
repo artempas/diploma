@@ -12,14 +12,11 @@ export default {
     authenticated(successful) {
       if (successful){
         console.log('logged in')
-        this.$router.push( this.return_url);
-        this.is_authenticated=true;
+        this.$router.push('/scenarios');
       }
     }
   },
-  computed:{
-    ...mapWritableState(useAuthStore, ['return_url', "is_authenticated"])
-  }
+
 }
 </script>
 

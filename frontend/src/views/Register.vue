@@ -13,13 +13,10 @@ export default {
     registered(successful) {
       if (successful){
         this.$router.push( this.return_url);
-        this.is_authenticated=true;
       }
     }
   },
-  computed:{
-    ...mapWritableState(useAuthStore, ['return_url', "is_authenticated"])
-  }
+
 }
 </script>
 

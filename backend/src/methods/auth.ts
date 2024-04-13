@@ -8,7 +8,7 @@ const usersRouter = express.Router();
 usersRouter.post('/auth', login);
 usersRouter.post('/register', register);
 
-const AUTH_COOKIE_NAME = 'Auth';
+const AUTH_COOKIE_NAME = 'AuthToken';
 
 /**
  * @openapi
@@ -86,7 +86,7 @@ async function login (
         return res.json({ok: false, error: 'Wrong password'}).status(403);
     }
     const token = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
-    res.header({'Set-cookie': `Auth:${token}`});
+    res.header({'Set-cookie': `${AUTH_COOKIE_NAME}=${token}; Path=/; Same-site=Lax`});
     return res.json({ok: true, token});
 }
 
@@ -148,13 +148,14 @@ async function register (req: express.Request<{username: string, password: strin
     const hashed_password = await hash(password, salt);
     const user = await Db.Users.createUser({username, password: hashed_password});
     const token = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
-    res.header({'Set-cookie': `${AUTH_COOKIE_NAME}:${token}`});
+    res.header({'Set-cookie': `${AUTH_COOKIE_NAME}=${token}; Path=/; Same-site=Lax`});
 
     return res.json({ok: true, id: user.id, username: user.username, token});
 }
 
 export const authMiddleware: RequestHandler = async (req, res, next) => {
     const token = req.cookies[AUTH_COOKIE_NAME] ?? req.header(AUTH_COOKIE_NAME);
+    console.log(token ?? 'NO TOKEN');
     if (token){
         const id = verify(token, process.env.ACCESS_TOKEN_SECRET!).toString();
         const user = await db.Users.findUser({ id });

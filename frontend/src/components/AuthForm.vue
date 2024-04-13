@@ -11,8 +11,7 @@ export default {
     }
   },
   methods:{
-    async onSubmit(e){
-      e.preventDefault()
+    async auth(){
       const response = await axios.post(`api/users/auth`, {
         username: this.username,
         password: this.password
@@ -41,9 +40,9 @@ export default {
 
       <FloatLabel class="luboy">
       <label for="password" class="block text-900 font-medium mb-2">Пароль</label>
-      <InputText id="password" type="password" v-model="password" placeholder="Password" class="w-full mb-3" />
+      <Password :feedback="false" toggleMask id="password" type="password" v-model="password" placeholder="Password" class="w-full mb-3" />
       </FloatLabel>
-      <Button label="Войти" icon="pi pi-user" style="margin-bottom: 15px"></Button>
+      <Button label="Войти" icon="pi pi-user" style="margin-bottom: 15px" @click="auth"></Button>
       <router-link to="/register">
       <Button label="Зарегистрироваться" severity="secondary"/>
       </router-link>

@@ -6,6 +6,7 @@ import db from '../db';
 const scenariosRouter = express.Router();
 scenariosRouter.use(authMiddleware);
 scenariosRouter.get('/:id(\\d+)', getScenario);
+scenariosRouter.delete('/:id(\\d+)', deleteScenario);
 scenariosRouter.get('/all', getScenarios);
 scenariosRouter.post('', createScenario);
 
@@ -74,7 +75,7 @@ async function getScenarios (req: express.Request, res: express.Response){
  *       security:
  *         - cookieAuth: []
  *       summary: Create scenario
- *       requestBody:
+ *       parameters:
  *         required: false
  *         content:
  *           application/json:
@@ -95,6 +96,35 @@ async function createScenario (req: express.Request<{name?: string}>, res: expre
     const scenario_name = req.body.name ?? 'Scenario';
     const scenario = await db.Scenarios.createScenario(scenario_name, req.user!);
     res.status(201).json({ok: true, data: scenario});
+}
+
+/**
+ * @openapi
+ *   /scenario/{id}:
+ *     delete:
+ *       tags:
+ *         - scenarios
+ *       security:
+ *         - cookieAuth: []
+ *       summary: Create scenario
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: ID of the scenario to retrieve
+ *       responses:
+ *         '200':
+ *           description: Scenario created successfully
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/Scenario'
+ */
+async function deleteScenario (req: express.Request<{ id: number }>, res: express.Response){
+    const deleted = await db.Scenarios.deleteScenario(req.params.id, req.user!) === 1;
+    res.status(deleted ? 200 : 404).json({ok: deleted});
 }
 
 export default scenariosRouter;
