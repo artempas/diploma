@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 import Scenarios from "@/views/Scenarios.vue";
 import Login from "@/views/Login.vue";
 import {useAuthStore} from "@/stores/auth";
+import Register from "@/views/Register.vue";
 
 const routes = [
     {
@@ -13,6 +14,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
     },
     {
         path: '/',
@@ -27,7 +33,7 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
     // redirect to login page if not logged in and trying to access a restricted page
-    const publicPages = ['/login', '/signup'];
+    const publicPages = ['/login', '/register'];
     const authRequired = !publicPages.includes(to.path);
     const auth = useAuthStore();
     console.log(to.path)

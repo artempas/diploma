@@ -132,7 +132,7 @@ async function login (
  *                   ok:
  *                     type: boolean
  *                     value: false
- *                   err:
+ *                   error:
  *                     type: string
  *                     description: Username already taken
  */
@@ -142,7 +142,7 @@ async function register (req: express.Request<{username: string, password: strin
         return res.status(400);
     }
     if (await Db.Users.findUser({ username })){
-        return res.json({ok: false, err: 'Username already taken'});
+        return res.json({ok: false, error: 'Username already taken'});
     }
     const salt = await genSalt(10);
     const hashed_password = await hash(password, salt);
@@ -150,7 +150,7 @@ async function register (req: express.Request<{username: string, password: strin
     const token = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
     res.header({'Set-cookie': `${AUTH_COOKIE_NAME}:${token}`});
 
-    return res.json({id: user.id, username: user.username, token});
+    return res.json({ok: true, id: user.id, username: user.username, token});
 }
 
 export const authMiddleware: RequestHandler = async (req, res, next) => {
