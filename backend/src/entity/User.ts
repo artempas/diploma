@@ -31,9 +31,9 @@ export class User {
     @Column('varchar', { length: 255 })
         username: string;
 
-    @Column('varchar', { length: 60 })
+    @Column('varchar', { length: 60, select: false })
         password: string;
 
-    @OneToMany(() => Scenario, (scenario) => scenario.id)
+    @OneToMany(() => Scenario, (scenario) => scenario.user)
         scenarios: Scenario[];
 }

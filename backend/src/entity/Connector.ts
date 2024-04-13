@@ -46,6 +46,6 @@ export class Connector{
     @ManyToOne(() => Scenario, (s) => s.connectors, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         scenario: Scenario;
 
-    @OneToMany(() => Chat, (c) => c.id)
+    @OneToMany(() => Chat, (c) => c.connector)
         chats: Chat[];
 }

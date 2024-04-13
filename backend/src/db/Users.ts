@@ -8,8 +8,15 @@ export class Users{
         this.dataSource = ds;
     }
 
-    async findUser (filter: FindOptionsWhere<User>): Promise<User|undefined>{
-        return await this.dataSource.manager.findOneBy(User, filter) ?? undefined;
+    async findUser (filter: FindOptionsWhere<User>, return_password?: boolean): Promise<User|undefined>{
+        return await this.dataSource.manager.findOne(User, {
+            where: filter,
+            select: {
+                password: return_password ?? false,
+                username: true,
+                id: true
+            }
+        }) ?? undefined;
     }
 
     async createUser (data: Partial<User>): Promise<User>{

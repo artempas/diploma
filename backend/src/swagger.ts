@@ -12,6 +12,15 @@ const options = {
             title: 'Chatbot API',
             version: '1.0.0',
         },
+        components: {
+            securitySchemes: {
+                cookieAuth: {
+                    type: 'apiKey',
+                    in: 'header',
+                    name: 'auth'
+                }
+            }
+        }
     },
     apis: ['./src/methods/*.ts', './src/entity/*.ts'], // files containing annotations as above
 };

@@ -5,14 +5,19 @@ import db from '../db';
 
 const scenariosRouter = express.Router();
 scenariosRouter.use(authMiddleware);
-scenariosRouter.get('/:id(^\\d+$)', getScenario);
+scenariosRouter.get('/:id(\\d+)', getScenario);
 scenariosRouter.get('/all', getScenarios);
+scenariosRouter.post('', createScenario);
 
 /**
  *  @openapi
  *   /scenario/all:
  *     get:
+ *       security:
+ *           - cookieAuth: []
  *       summary: Retrieve all scenarios
+ *       tags:
+ *         - scenarios
  *       responses:
  *         '200':
  *           description: successful operation
@@ -34,7 +39,11 @@ async function getScenario (req: express.Request<{ id: string }>, res: express.R
  * @openapi
  *   /scenario/{id}:
  *     get:
+ *       security:
+ *          - cookieAuth: []
  *       summary: Retrieve a specific scenario
+ *       tags:
+ *         - scenarios
  *       parameters:
  *         - in: path
  *           name: id
@@ -46,14 +55,46 @@ async function getScenario (req: express.Request<{ id: string }>, res: express.R
  *         '200':
  *           description: successful operation
  *           content:
- *             application/json:
+ *             appliercation/json:
  *               schema:
  *                 $ref: '#/components/schemas/Scenario'
  *
  */
 async function getScenarios (req: express.Request, res: express.Response){
-    const scenarios = await db.Scenarios.findScenarios({ user: req.user!});
+    const scenarios = await db.Scenarios.findScenarios({ user: {id: req.user!.id}});
     res.json({ok: true, data: scenarios});
+}
+
+/**
+ * @openapi
+ *   /scenario:
+ *     post:
+ *       tags:
+ *         - scenarios
+ *       security:
+ *         - cookieAuth: []
+ *       summary: Create scenario
+ *       requestBody:
+ *         required: false
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *       responses:
+ *         '201':
+ *           description: Scenario created successfully
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/Scenario'
+ */
+async function createScenario (req: express.Request<{name?: string}>, res: express.Response){
+    const scenario_name = req.body.name ?? 'Scenario';
+    const scenario = await db.Scenarios.createScenario(scenario_name, req.user!);
+    res.status(201).json({ok: true, data: scenario});
 }
 
 export default scenariosRouter;

@@ -51,6 +51,6 @@ export class Chat{
     @ManyToOne(() => Connector, (c) => c.chats, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         connector: Connector;
 
-    @OneToMany(() => Message, (m) => m.id)
+    @OneToMany(() => Message, (m) => m.chat)
         messages: Message;
 }

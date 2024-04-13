@@ -47,11 +47,11 @@ export class Scenario {
     @Column('varchar', {length: 255})
         name: string;
 
-    @Column('text')
-        visual_data: string;
+    @Column('text', {nullable: true})
+        visual_data?: string;
 
-    @Column('jsonb')
-        logical_data: Element<any>[];
+    @Column('jsonb', {nullable: true})
+        logical_data?: Element<any>[];
 
     @Column('date', {default: 'NOW()'})
         created_at: string;
@@ -59,6 +59,6 @@ export class Scenario {
     @ManyToOne(() => User, (user) => user.scenarios, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         user: User;
 
-    @OneToMany(() => Connector, (con) => con.id)
+    @OneToMany(() => Connector, (con) => con.scenario)
         connectors: Connector[];
 }

@@ -40,6 +40,11 @@ const AUTH_COOKIE_NAME = 'Auth';
  *                     type: boolean
  *                   token:
  *                     type: string
+ *           headers:
+ *             Set-Cookie:
+ *               schema:
+ *                 type: string
+ *                 example: Auth=abcde12345;
  *         '400':
  *           description: Bad request
  *         '403':
@@ -73,15 +78,16 @@ async function login (
     if (!username || !password){
         return res.json({ok: false, err: 'Some required params are missing'}).status(400);
     }
-    const user = await Db.Users.findUser({ username });
+    const user = await Db.Users.findUser({ username }, true);
     if (!user){
         return res.json({ok: false, error: 'User not found'}).status(404);
     }
     if (!await compare(password, user.password)){
         return res.json({ok: false, error: 'Wrong password'}).status(403);
     }
-    res.header({'Set-cookie': `Auth:${sign(user.id, process.env.ACCESS_TOKEN_SECRET!)}`});
-    return res.json({ok: true});
+    const token = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
+    res.header({'Set-cookie': `Auth:${token}`});
+    return res.json({ok: true, token});
 }
 
 /**
@@ -105,6 +111,11 @@ async function login (
  *       responses:
  *         '200':
  *           description: User registered successfully
+ *           headers:
+ *             Set-Cookie:
+ *               schema:
+ *                 type: string
+ *                 example: auth=abcde12345;
  *           content:
  *             application/json:
  *               schema:
@@ -136,14 +147,16 @@ async function register (req: express.Request<{username: string, password: strin
     const salt = await genSalt(10);
     const hashed_password = await hash(password, salt);
     const user = await Db.Users.createUser({username, password: hashed_password});
-    res.header({'Set-cookie': `${AUTH_COOKIE_NAME}:${sign(user.id, process.env.ACCESS_TOKEN_SECRET!)}`});
+    const token = sign(user.id, process.env.ACCESS_TOKEN_SECRET!);
+    res.header({'Set-cookie': `${AUTH_COOKIE_NAME}:${token}`});
 
-    return res.json({id: user.id, username: user.username});
+    return res.json({id: user.id, username: user.username, token});
 }
 
 export const authMiddleware: RequestHandler = async (req, res, next) => {
-    if (req.cookies[AUTH_COOKIE_NAME]){
-        const id = verify(req.cookies[AUTH_COOKIE_NAME], process.env.ACCESS_TOKEN_SECRET!).toString();
+    const token = req.cookies[AUTH_COOKIE_NAME] ?? req.header(AUTH_COOKIE_NAME);
+    if (token){
+        const id = verify(token, process.env.ACCESS_TOKEN_SECRET!).toString();
         const user = await db.Users.findUser({ id });
         if (user) {
             req.user = user;
