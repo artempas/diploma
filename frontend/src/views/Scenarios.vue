@@ -12,7 +12,7 @@ export default {
   },
   methods:{
     async getScenarios(){
-      const scenarios=(await axios.get('api/scenario/all')).data.data;
+      const scenarios=(await apiRequest('get','api/scenario/all')).data;
       console.log(scenarios)
       return scenarios;
     },

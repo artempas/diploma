@@ -7,6 +7,7 @@ const scenariosRouter = express.Router();
 scenariosRouter.use(authMiddleware);
 scenariosRouter.get('/:id(\\d+)', getScenario);
 scenariosRouter.delete('/:id(\\d+)', deleteScenario);
+scenariosRouter.patch('/:id(\\d+)/setVisual', setVisual);
 scenariosRouter.get('/all', getScenarios);
 scenariosRouter.post('', createScenario);
 
@@ -126,5 +127,11 @@ async function deleteScenario (req: express.Request<{ id: number }>, res: expres
     const deleted = await db.Scenarios.deleteScenario(req.params.id, req.user!) === 1;
     res.status(deleted ? 200 : 404).json({ok: deleted});
 }
+
+async function setVisual (req: express.Request<{id: number, visual_data: any}>, res: express.Response){
+    const updated = await db.Scenarios.updateScenario(req.params.id, req.user!, req.body.visual_data) === 1;
+    res.status(updated ? 200 : 404).json({ok: updated});
+}
+
 
 export default scenariosRouter;

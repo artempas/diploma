@@ -25,6 +25,14 @@ export class Scenarios{
         return await this.dataSource.manager.save(scenario);
     }
 
+    async updateScenario (id: number, user: User, visual_data: any): Promise<number>{
+        return (await this.dataSource.manager.update(
+            Scenario,
+            {id, user},
+            {visual_data: JSON.stringify(visual_data)}
+        )).affected ?? 0;
+    }
+
     async deleteScenario (id: number, user: User): Promise<number>{
         return (await this.dataSource.manager.delete(Scenario, {
             id, user

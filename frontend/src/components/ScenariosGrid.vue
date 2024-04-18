@@ -4,7 +4,7 @@
     <ScenarioCard :key="scenario.id" v-for="scenario in scenarios"
     :scenario="scenario"
     @scenario-delete="deleteScenarioConfirm(scenario.id)"
-    @open-scenario="$emit('open-scenario')"
+    @scenario-open="$router.push(`/scenarios/${scenario.id}`)"
     />
   </div>
   <Button icon="pi pi-plus" class="big-button" @click="modal = true"/>
@@ -27,6 +27,7 @@
 import ScenarioCard from "@/components/ScenarioCard.vue";
 import axios from "axios";
 import {apiRequest} from "@/tools/requests";
+import router from "@/router";
 export default {
   name: 'ScenarioGrid',
   props:{
@@ -47,6 +48,9 @@ export default {
     console.log(`SCENARIO GRID ${JSON.stringify(this.scenarios)}`)
   },
   methods:{
+    router() {
+      return router
+    },
     deleteScenarioConfirm(id){
       this.$confirm.require({
         message:"Вы точно хотите удалить сценарий?",

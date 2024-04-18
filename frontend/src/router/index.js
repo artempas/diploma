@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import Scenarios from "@/views/Scenarios.vue";
 import Login from "@/views/Login.vue";
-import {useAuthStore} from "@/stores/auth";
 import Register from "@/views/Register.vue";
+import ScenarioEditor from "@/views/ScenarioEditor.vue";
 
 const routes = [
     {
@@ -23,6 +23,9 @@ const routes = [
     {
         path: '/',
         redirect: {name: 'login'}
+    },
+    {
+        path: '/scenarios/:id(\\d+)', component: ScenarioEditor
     }
 ]
 

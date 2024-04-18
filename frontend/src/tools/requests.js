@@ -1,14 +1,17 @@
 import axios from "axios";
 
+const instance = axios.create({baseURL: window.location.origin})
 export async function apiRequest(method, url, data, toast){
     try{
         switch (method){
             case 'get':
-                return (await axios.get(url)).data;
+                return (await instance.get(url)).data;
             case 'post':
-                return (await axios.post(url, data)).data;
+                return (await instance.post(url, data)).data;
             case 'delete':
-                return (await axios.delete(url, data)).data;
+                return (await instance.delete(url, data)).data;
+            case 'patch':
+                return (await instance.patch(url, data)).data;
             default:
                 return null;
         }

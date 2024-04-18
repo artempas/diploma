@@ -18,6 +18,11 @@ import ConfirmationService from 'primevue/confirmationservice';
 import Dialog from "primevue/dialog";
 import ToastService from 'primevue/toastservice';
 import Toast from 'primevue/toast';
+import '@vue-flow/core/dist/style.css';
+import '@vue-flow/core/dist/theme-default.css';
+import {VueFlow} from "@vue-flow/core";
+import {Background} from "@vue-flow/background";
+import Textarea from "primevue/textarea";
 
 
 
@@ -38,4 +43,8 @@ app.component('Card', Card)
 app.component('ConfirmDialog',ConfirmDialog)
 app.component('DataView', DataView)
 app.component('Dialog', Dialog)
+app.component('Textarea', Textarea)
 app.component('Toast', Toast)
+app.component('Background', Background)
+app.component('VueFlow', VueFlow)
+
