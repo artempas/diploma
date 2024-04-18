@@ -16,6 +16,7 @@ export async function apiRequest(method, url, data, toast){
                 return null;
         }
     } catch (e){
+        console.log(e)
         toast.add({severity:"error", summary:'Ошибка', detail: e, life:3000})
         return {ok:false}
     }

@@ -1,10 +1,55 @@
+/* @jsxImportSource vue */
 import {Position} from "@vue-flow/core";
+import {h} from "vue";
+import Chip from "primevue/chip";
 
-const typesMap={
+const namesMap={
+    init: 'Начало',
+    send_message: 'Сообщение',
+    assign: 'Присвоить',
+    input: 'Ввод',
+    menu: 'Меню',
+    condition: 'Условие',
+}
+
+export function getLabel(element, content){
+    // return h('div', [h(Chip, {label: namesMap[element]}), h('p', content)])
+    return <div>
+        <h4>{namesMap[element].toString()}</h4>
+            <p style={{ whiteSpace: "pre-line", "overflow-wrap":"break-word"}}>
+                {content}
+            </p>
+
+    </div>
+}
+
+export function updateLabel(element){
+    switch (element.data.type){
+        case 'send_message': {
+            element.label = getLabel('send_message', element.data.text);
+            break;
+        }
+        case 'init': {
+            element.label = getLabel('init', element.data.text);
+            break;
+        }
+        case 'assign': {
+            element.label = getLabel('assign', `${element.data.variable}=${element.data.value}`)
+            break;
+        }
+        case 'input': {
+            element.label = getLabel('input', `${element.data.message}\n${element.data.variable}=`)
+            break;
+        }
+
+    }
+}
+
+export const typesMap={
     'init':{
         type:'output',
         connectable: 'single',
-        label:'Начало',
+        label:{...getLabel('init', 'Начало')},
         targetPosition: Position.Right,
         sourcePosition: Position.Left,
         data:{
@@ -15,8 +60,12 @@ const typesMap={
     'send_message':{
         type:'default',
         connectable: 'single',
-        label:'Сообщение',
+        label: getLabel('send_message', 'Сообщение'),
         targetPosition: Position.Right,
+        dimensions:{
+            height:200,
+            width:100
+        },
         sourcePosition: Position.Left,
         data:{
             type: 'send_message',
@@ -30,19 +79,20 @@ const typesMap={
         connectable: 'single',
         data: {
             type: 'assign',
-            variableName:'variable',
+            variable:'variable',
             value: 'value'
         },
-        label: 'variable=value'
+        label: getLabel('assign','variable=value')
     },
     'input':{
         type: 'default',
         targetPosition: Position.Right,
         sourcePosition: Position.Left,
-        label:'Ввод',
+        label:getLabel('input', 'Ввод\nvariable='),
         connectable: 'single',
         data:{
             type:'input',
+            variable:'variable',
             message: 'Ввод'
         }
     },
@@ -50,7 +100,7 @@ const typesMap={
         type: 'input',
         connectable: 'single',
         sourcePosition: Position.Left,
-        label:'Меню',
+        label: {...getLabel('menu','Меню')},
         data: {
             text: 'Меню'
         }
@@ -72,8 +122,9 @@ const typesMap={
             type: 'input',
             connectable: 'single',
             sourcePosition: Position.Left,
-            label:'1=1',
+            label:getLabel('condition','1=1'),
             data: {
+                type: 'condition',
                 first_value: '1',
                 operation:'=',
                 second_value:'1',
@@ -84,10 +135,10 @@ const typesMap={
             type: 'output',
             connectable:'single',
             expandParent:true,
-            class:'nodrag',
+            class:['nodrag', 'true'],
             targetPosition: Position.Right,
             position:{
-                x:2,y:40
+                x:2,y:90
             },
             label:"Истина"
         },
@@ -95,11 +146,11 @@ const typesMap={
             type: 'output',
             connectable:'single',
             expandParent:true,
-            class:'nodrag',
+            class:['nodrag', 'false'],
             targetPosition: Position.Right,
             label:"Ложь",
             position: {
-                x:2,y:80
+                x:2,y:130
             }
         }
     ]
@@ -107,13 +158,13 @@ const typesMap={
 export function constructNode(type, position){
     const id = type==='init'?'init':crypto.randomUUID()
     console.log(`constuctNode ${type}`)
-    const node = typesMap[type]
+    const node = JSON.parse(JSON.stringify(typesMap[type]))
     if (type==='menu'){
         return [
             {...node, id, position},
             {...typesMap.menuButton,
                 parentNode: id,
-                position:{x:0, y: 40},
+                position:{x:0, y: 80},
                 id: crypto.randomUUID(),
                 }
         ]

@@ -20,9 +20,14 @@ import ToastService from 'primevue/toastservice';
 import Toast from 'primevue/toast';
 import '@vue-flow/core/dist/style.css';
 import '@vue-flow/core/dist/theme-default.css';
-import {VueFlow} from "@vue-flow/core";
+import {Panel, VueFlow} from "@vue-flow/core";
 import {Background} from "@vue-flow/background";
 import Textarea from "primevue/textarea";
+import Chip from "primevue/chip";
+import Tooltip from "primevue/tooltip";
+import '@/vue-flow-styles.css';
+import SelectButton from "primevue/selectbutton";
+import ToggleButton from "primevue/togglebutton";
 
 
 
@@ -45,6 +50,12 @@ app.component('DataView', DataView)
 app.component('Dialog', Dialog)
 app.component('Textarea', Textarea)
 app.component('Toast', Toast)
+app.component('Chip', Chip)
 app.component('Background', Background)
 app.component('VueFlow', VueFlow)
+app.component("Panel", Panel)
+app.directive('tooltip', Tooltip);
+app.component('SelectButton',SelectButton)
+app.component('ToggleButton',ToggleButton)
+
 

@@ -17,8 +17,6 @@ export default {
       return scenarios;
     },
     async deleteScenario(id){
-      id=id+1;
-      this.$toast.add({severity:"error", summary:'Ошибка', detail: 'BLA', life:3000})
       const deleted = await apiRequest('delete', `/api/scenario/${id}`, this.$toast);
       if (deleted.ok) {
         this.scenarios = this.scenarios.filter((scenario) => scenario.id !== id)

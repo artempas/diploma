@@ -1,0 +1,19 @@
+.vue-flow__handle {
+    width: 10px;
+    height: 10px;
+    background:#00aa00!important;
+}
+
+:root{
+    --vf-node-color:var(--primary-color);
+    --vf-connection-path:#000000!important;
+}
+.vue-flow__edges{
+    fill:#aa0000!important;
+}
+.true{
+    background: var(--green-500);
+}
+.false{
+    background: var(--red-500);
+}
