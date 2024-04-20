@@ -1,19 +1,65 @@
 .vue-flow__handle {
-    width: 10px;
-    height: 10px;
-    background:#00aa00!important;
+    width: 15px;
+    height: 15px;
+    background:#000000!important;
 }
 
-:root{
-    --vf-node-color:var(--primary-color);
-    --vf-connection-path:#000000!important;
+
+.vue-flow__node-input{
+    --vf-node-color: #000000;
 }
-.vue-flow__edges{
-    fill:#aa0000!important;
+.vue-flow__node-output {
+    --vf-node-color: #000000;
+}
+.vue-flow__edge-path{
+    stroke:#00cec9;
+    stroke-width:2pt;
 }
 .true{
-    background: var(--green-500);
+    --vf-node-color: var(--green-500);
+    border-width: medium;
 }
 .false{
-    background: var(--red-500);
+    --vf-node-color: var(--red-500);
+    border-width: medium;
+}
+
+.child{
+
+}
+
+.menu-node{
+    display:flex;
+    justify-content:flex-start;
+}
+.menu-label{
+    align-self:start;
+    width:100%;
+}
+.node{
+    height:80px;
+    padding:5px;
+    font-family: "Rubik", sans-serif;
+}
+
+.node-label{
+    display:flex;
+    flex-direction:column;
+}
+.node-label-name{
+    align-self:start;
+    width:100%;
+    height: 13px;
+    font-size:13px;
+    font-weight: normal;
+    font-style: italic;
+    margin-top:5px;
+    margin-bottom: 0;
+    margin-left: 5px;
+    text-align: left;
+}
+.node-label-content{
+    white-space: pre-line;
+    overflow-wrap:break-word;
+    font-size:17px;
 }

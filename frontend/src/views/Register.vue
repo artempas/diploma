@@ -1,7 +1,5 @@
 
 <script>
-import {useAuthStore} from "@/stores/auth";
-import {mapWritableState} from "pinia";
 import AuthForm from "@/components/AuthForm.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
 
@@ -12,7 +10,7 @@ export default {
   methods:{
     registered(successful) {
       if (successful){
-        this.$router.push( this.return_url);
+        this.$router.push('/');
       }
     }
   },

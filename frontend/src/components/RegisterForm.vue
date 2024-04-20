@@ -48,7 +48,7 @@ export default {
 
       <FloatLabel class="luboy">
         <label for="password" class="block text-900 font-medium mb-2">Пароль</label>
-        <Password toggleMask required id="password" weakLabel="Слабый" mediumLabel="Средний" strongLabel="СИЛЬНЫЙ" v-model="password" placeholder="Password" class="w-full mb-3" />
+        <Password required id="password" weakLabel="Слабый" mediumLabel="Средний" strongLabel="СИЛЬНЫЙ" v-model="password" placeholder="Password" class="w-full mb-3" />
       </FloatLabel>
       <div class="p-error" style="margin-bottom:10px">{{errorMessage}}</div>
       <Button @click="register" label="Зарегистрироваться" icon="pi pi-user" style="margin-bottom: 15px"></Button>

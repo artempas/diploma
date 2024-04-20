@@ -1,18 +1,35 @@
 <template>
   <Toast/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+
+  <SelectButton
+      v-model="theme"
+      :options="options"
+      >
+  </SelectButton>
 <router-view></router-view>
 </template>
 
 <script>
 
 
+import SelectButton from "primevue/selectbutton";
 export default {
   name: 'App',
-  components: {
-  },
+  components: { SelectButton },
+  data:()=>({
+    theme: 'light',
+    options: ['light', 'dark']
+  }),
+  // watch: {
+  //   theme: {
+  //     handler(val) {
+  //       this.$primevue.changeTheme(this.theme, val, 'theme', () => {
+  //       })
+  //       localStorage.setItem('theme',val)
+  //     }, immediate: true
+  //   }
+  // }
 }
 </script>
 
@@ -27,6 +44,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-  margin-top: 60px;
+  margin-top:10px;
+  margin-left:10px;
+  margin-right:10px;
 }
 </style>

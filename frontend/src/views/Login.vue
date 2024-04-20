@@ -1,7 +1,5 @@
 
 <script>
-import {useAuthStore} from "@/stores/auth";
-import {mapWritableState} from "pinia";
 import AuthForm from "@/components/AuthForm.vue";
 
 

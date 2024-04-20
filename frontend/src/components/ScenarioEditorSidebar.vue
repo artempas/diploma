@@ -6,28 +6,32 @@ export default {
 </script>
 
 <template>
-  <aside>
-    <div class="description">You can drag these nodes to the pane.</div>
-
     <div class="nodes">
-      <div class="vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'send_message')">Сообщение</div>
-      <div class="vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'input')">Ответ</div>
-      <div class="vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'condition')">Условие</div>
-      <div class="vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'assign')">
+      <div class="topbar-button vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'send_message')">Сообщение</div>
+      <div class="topbar-button vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'input')">Ответ</div>
+      <div class="topbar-button vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'condition')">Условие</div>
+      <div class="topbar-button vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'assign')">
         Переменная
       </div>
-      <div class="vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'menu')">
+      <div class="topbar-button vue-flow__node-default" :draggable="true" @dragstart="$emit('onDragStart', $event, 'menu')">
       Меню
       </div>
-
     </div>
-  </aside>
 </template>
 
 <style scoped>
 .nodes{
   display:flex;
   flex-direction:row;
-  width:80%
+  width:80%;
+}
+.topbar-button{
+  height: 60px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-right:10px;
 }
 </style>

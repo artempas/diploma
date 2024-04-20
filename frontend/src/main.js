@@ -3,7 +3,6 @@ import router from "@/router";
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import PrimeVue from "primevue/config";
-import 'primevue/resources/themes/aura-light-cyan/theme.css';
 import Password from "primevue/password";
 import InputText from "primevue/inputtext";
 import InputGroup from "primevue/inputgroup";

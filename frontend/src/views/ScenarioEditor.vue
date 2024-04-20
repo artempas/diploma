@@ -1,12 +1,12 @@
 <script>
-import {applyChanges, applyNodeChanges, ConnectionMode, useVueFlow, VueFlow} from "@vue-flow/core";
+import {applyChanges, ConnectionMode, useVueFlow, VueFlow} from "@vue-flow/core";
 import DropzoneBackground from "@/components/DropzoneBackground.vue";
 import {watch} from "vue";
 import ScenarioEditorSidebar from "@/components/ScenarioEditorSidebar.vue";
-import {constructNode, getLabel, typesMap, updateLabel} from "@/tools/nodeBuilder";
+import {constructNode, updateLabel} from "@/tools/nodeBuilder";
 import {apiRequest} from "@/tools/requests";
 import {MiniMap} from "@vue-flow/minimap";
-const { addEdges, onConnect, addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode, findNode, toObject, fromObject } = useVueFlow({ id: 'schema' })
+const { addEdges, onConnect, addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode, findNode, toObject, removeNodes } = useVueFlow({ id: 'schema' })
 export default {
   name: "ScenarioEditor",
   computed: {
@@ -44,10 +44,31 @@ export default {
       set(v){
         this.showModal=v
       }
+    },
+    showMenuModal: {
+      get () {
+        return this.showModal && this.element?.data?.type === 'menu';
+      },
+      set(v){
+        this.showModal=v
+      }
     }
   },
   components: {MiniMap, ScenarioEditorSidebar, DropzoneBackground, VueFlow},
   methods:{
+    addButton(){
+      if (this.element.data.type==='menu'){
+        const newButton=constructNode('menuButton', null, this.element, this.menu__buttons.length)[0];
+        newButton.data.text='';
+        this.menu__buttons.push(newButton);
+        console.log(this.menu__buttons)
+      }
+    },
+    deleteButton(id){
+      if (this.element.data.type==='menu'){
+        this.menu__buttons=this.menu__buttons.filter((e)=>e.id!==id)
+      }
+    },
     saveSingleNode(){
       console.log(`Saving element ${JSON.stringify(this.element.data)}`)
       switch (this.element.data.type){
@@ -70,15 +91,34 @@ export default {
           this.element.data.variable=this.input__variable_name;
           break;
         }
+        case 'menu':{
+         this.element.data.text=this.menu__message_text;
+         this.saveChildren()
+        }
       }
       updateLabel(this.element);
-      updateNode(this.element.id, {
-        label:this.element.label,
-        data:this.element.data
-      })
-      console.log(`After save ${JSON.stringify(this.element.data)}`)
       this.showModal=false
-
+    },
+    saveChildren(){
+      removeNodes(
+        this.menu__child_elements.filter((i)=>{
+          !this.menu__buttons.filter((j)=>i.id===j.id).length;
+        })
+      );
+      for (let i of this.menu__buttons){
+        let found = this.menu__child_elements.filter((j)=>i.id===j.id)[0];
+        console.log(found)
+        if (found){
+          console.log('found')
+          found.data.text=i.data.text;
+        } else {
+          console.log('not found')
+          found = i;
+          this.schemaData.push(found)
+        }
+        updateLabel(found);
+        console.log(this.schemaData)
+      }
     },
     nodeClick(e){
       this.element=findNode(e.node.id);
@@ -103,11 +143,29 @@ export default {
           this.condition__negation=this.element.data.negation;
           this.condition__operation=this.element.data.operation;
           break;
+        case 'menu':
+          this.menu__message_text=this.element.data.text;
+          this.menu__child_elements=this.schemaData.filter((element)=>element.parentNode===this.element.id);
+          this.menu__buttons=JSON.parse(JSON.stringify(this.menu__child_elements));
       }
       this.showModal=true;
     },
     onEdgesChanged(changes){
           applyChanges(changes, this.schemaData)
+    },
+    validateEdge(change){
+      try {
+        return (
+          change.sourceHandle.split('-').pop()!==change.targetHandle.split('-').pop()
+          && change.source!==change.target
+          && findNode(change.source).parentNode !== findNode(change.target)?.id
+          && findNode(change.target).parentNode !== findNode(change.source)?.id
+
+        )
+      } catch (e){
+        console.error(e);
+        console.log(change)
+      }
     },
     onNodesChanged(changes){
       console.log(`NODE CHANGED ${JSON.stringify(changes)}`)
@@ -198,6 +256,14 @@ export default {
       condition__operations:['=', '>'],
       condition__second_value: '',
       condition__negation: false,
+      menu__message_text:'',
+      menu__child_elements:[],
+      menu__buttons:[{
+        id:'0',
+        data:{
+          text:''
+        }
+      }]
     }
   },
   async mounted(){
@@ -218,36 +284,37 @@ export default {
 </script>
 
 <template>
-
-  <Button icon="pi pi-arrow-left" @click="$router.go(-1)" label="Назад" style="float: left"/>
-
-  <div @drop="onDrop">
-    <div class="topbar">
-      <ScenarioEditorSidebar @onDragStart="onDragStart" />
-      <div class="topbar-buttons">
-      <Button icon="pi pi-save" rounded @click="saveSchema"/>
+  <div class="page">
+    <Button icon="pi pi-arrow-left" @click="$router.go(-1)" label="Назад" style="float: left; width:150px; height:60px; font-size:20px;"/>
+    <div @drop="onDrop">
+      <div class="topbar">
+        <ScenarioEditorSidebar @onDragStart="onDragStart" />
+        <div class="topbar-right-buttons">
+        <Button icon="pi pi-save" size="large" class="topbar-right-button" @click="saveSchema" label="Сохранить"/>
+        </div>
       </div>
+      <VueFlow
+          id="schema"
+          class="basicflow"
+          v-model="schemaData"
+          @dragover="onDragOver"
+          @dragleave="onDragLeave"
+          :apply-changes="false"
+          :apply-default="false"
+          :is-valid-connection="validateEdge"
+          @nodes-change="onNodesChanged"
+          @edges-change="onEdgesChanged"
+          @node-click="nodeClick">
+        <Background pattern-color="#aaa" :gap="16" />
+        <DropzoneBackground
+            :style="{
+              backgroundColor: isDragOver ? '#e7f3ff' : 'transparent',
+              transition: 'background-color 0.2s ease',
+            }"
+        />
+        <MiniMap mask-color="#BBBBBB"/>
+      </VueFlow>
     </div>
-    <VueFlow
-        id="schema"
-        class="basicflow"
-        v-model="schemaData"
-        @dragover="onDragOver"
-        @dragleave="onDragLeave"
-        :apply-changes="false"
-        :apply-default="false"
-        @nodes-change="onNodesChanged"
-        @edges-change="onEdgesChanged"
-        @node-click="nodeClick">
-      <Background pattern-color="#aaa" :gap="16" />
-      <DropzoneBackground
-          :style="{
-            backgroundColor: isDragOver ? '#e7f3ff' : 'transparent',
-            transition: 'background-color 0.2s ease',
-          }"
-      />
-      <MiniMap mask-color="#BBBBBB"/>
-    </VueFlow>
   </div>
   <Dialog v-model:visible="showMessageModal" modal header="Сообщение" :style="{ width: '25rem' }">
     <div style="margin-bottom: 10px">Настройки</div>
@@ -313,28 +380,78 @@ export default {
       <Button type="button" label="Сохранить" @click="saveSingleNode"></Button>
     </div>
   </Dialog>
+  <Dialog v-model:visible="showMenuModal" modal header="Сообщение" style="width: 25rem">
+
+    <div style="margin-bottom: 10px">Настройки</div>
+    <FloatLabel class="luboy">
+      <label  class="block text-900 font-medium mb-2">
+        Сообщение
+      </label>
+
+      <Textarea v-model="menu__message_text" autoResize rows="5" cols="30" v-tooltip.right="variable_usage_tooltip" />
+    </FloatLabel>
+    <div style="margin-top: 10px; margin-bottom: 10px">Кнопки</div>
+    <div class="menu-buttons-modal">
+      <div class="menu-button-modal" v-for="button in menu__buttons">
+        <FloatLabel class="luboy">
+          <label  class="block text-900 font-medium mb-2" >Текст кнопки</label>
+          <InputText v-model="button.data.text" v-tooltip.right="variable_usage_tooltip" :invalid="!button.data.text"/>
+        </FloatLabel>
+        <Button icon="pi pi-times" severity="danger" rounded outlined @click="deleteButton(button.id)"/>
+      </div>
+      <Button icon="pi pi-plus" @click="addButton" rounded severity="success" style="align-self: center"/>
+    </div>
+    <div style="margin-top: 10px">
+      <Button type="button" label="Отмена" severity="secondary" @click="showModal=false"></Button>
+      <Button type="button" label="Сохранить" @click="saveSingleNode"></Button>
+    </div>
+  </Dialog>
 </template>
 
 <style scoped>
 .basicflow{
   width:100%;
   height:800px;
-  border: solid black;
+  border: solid black 2px;
 }
 
 .topbar{
   display:flex;
   flex-direction:row;
-  width:100%
-}
-.topbar-buttons{
   width:100%;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.topbar-right-buttons{
+  width:100%;
+  height:60px;
   display:flex;
   flex-direction:row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
 }
+.topbar-right-button{
+  height:50px;
+}
+
 .luboy{
   margin-top:30px
 }
+.menu-button-modal{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  row-gap: 15px;
+  align-items: flex-end;
+  width: 100%;
+}
+.menu-buttons-modal{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-content: center;
+  justify-content: center;
+  row-gap: 10px;
+}
+
 </style>

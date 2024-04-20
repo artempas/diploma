@@ -1,8 +1,12 @@
 <script>
 import axios from "axios";
+import InputText from "primevue/inputtext";
+import FloatLabel from "primevue/floatlabel";
+import Password from "primevue/password";
 
 export default {
   name: "AuthForm",
+  components:{FloatLabel, Password, InputText},
   data(){
     return {
       username: '',
@@ -29,22 +33,20 @@ export default {
 <template>
 
   <div class="auth-page">
-    <div class="text-center">
-      <div class="text">Вход</div>
-    </div>
+    <div class="text">Вход</div>
     <div class="form">
       <FloatLabel class="luboy">
-      <label for="username" class="block text-900 font-medium mb-2">Имя пользователя</label>
-      <InputText id="username" v-model="username" type="text" placeholder="Имя пользователя" class="w-full mb-3" />
+        <label for="username">Имя пользователя</label>
+        <InputText id="username" v-model="username" type="text" placeholder="Имя пользователя" />
       </FloatLabel>
 
-      <FloatLabel class="luboy">
-      <label for="password" class="block text-900 font-medium mb-2">Пароль</label>
-      <Password :feedback="false" toggleMask id="password" type="password" v-model="password" placeholder="Password" class="w-full mb-3" />
+      <FloatLabel class="luboy" id="passwordG">
+        <label for="password" style="z-index:100">Пароль</label>
+        <Password :feedback="false" id="password" v-model="password" placeholder="Пароль" />
       </FloatLabel>
       <Button label="Войти" icon="pi pi-user" style="margin-bottom: 15px" @click="auth"></Button>
       <router-link to="/register">
-      <Button label="Зарегистрироваться" severity="secondary"/>
+        <Button label="Зарегистрироваться" severity="secondary"/>
       </router-link>
     </div>
   </div>
@@ -60,11 +62,16 @@ export default {
   align-items: center;
   flex-direction: column;
 }
+
 .luboy{
+  display:flex;
   margin-bottom:30px;
+  width:300px;
 }
 
+
 .form{
+  align-items: center;
   display:flex;
   flex-direction: column;
 }
