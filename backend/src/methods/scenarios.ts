@@ -1,15 +1,17 @@
 import express from 'express';
 import {authMiddleware} from './auth';
 import db from '../db';
+import connectorsRouter from './connectors';
 
 
 const scenariosRouter = express.Router();
 scenariosRouter.use(authMiddleware);
-scenariosRouter.get('/:id(\\d+)', getScenario);
-scenariosRouter.delete('/:id(\\d+)', deleteScenario);
-scenariosRouter.patch('/:id(\\d+)/setVisual', setVisual);
+scenariosRouter.get('/:scenario_id(\\d+)', getScenario);
+scenariosRouter.delete('/:scenario_id(\\d+)', deleteScenario);
+scenariosRouter.patch('/:scenario_id(\\d+)/setVisual', setVisual);
 scenariosRouter.get('/all', getScenarios);
 scenariosRouter.post('', createScenario);
+scenariosRouter.use('/:scenario_id(\\d+)/connector', connectorsRouter);
 
 /**
  *  @openapi
@@ -31,10 +33,10 @@ scenariosRouter.post('', createScenario);
  *                   $ref: '#/components/schemas/Scenario'
  *
  */
-async function getScenario (req: express.Request<{ id: string }>, res: express.Response) {
-    const scenario = await db.Scenarios.findScenario({id: Number(req.params.id), user: req.user!});
+async function getScenario (req: express.Request<{ scenario_id: string }>, res: express.Response) {
+    const scenario = await db.Scenarios.findScenario({id: Number(req.params.scenario_id), user: req.user!});
     if (scenario) res.json({ok: true, data: scenario});
-    else res.sendStatus(404).json({ok: false, error: 'Not found'});
+    else res.status(404).json({ok: false, error: 'Not found'});
 }
 
 /**
@@ -123,13 +125,13 @@ async function createScenario (req: express.Request<{name?: string}>, res: expre
  *               schema:
  *                 $ref: '#/components/schemas/Scenario'
  */
-async function deleteScenario (req: express.Request<{ id: number }>, res: express.Response){
-    const deleted = await db.Scenarios.deleteScenario(req.params.id, req.user!) === 1;
+async function deleteScenario (req: express.Request<{ scenario_id: number }>, res: express.Response){
+    const deleted = await db.Scenarios.deleteScenario(req.params.scenario_id, req.user!) === 1;
     res.status(deleted ? 200 : 404).json({ok: deleted});
 }
 
-async function setVisual (req: express.Request<{id: number, visual_data: any}>, res: express.Response){
-    const updated = await db.Scenarios.updateScenario(req.params.id, req.user!, req.body.visual_data) === 1;
+async function setVisual (req: express.Request<{scenario_id: number, visual_data: any}>, res: express.Response){
+    const updated = await db.Scenarios.updateScenario(req.params.scenario_id, req.user!, req.body.visual_data) === 1;
     res.status(updated ? 200 : 404).json({ok: updated});
 }
 

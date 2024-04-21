@@ -1,20 +1,28 @@
 <template>
   <ConfirmDialog></ConfirmDialog>
+
   <div class="myGrid">
+    <Card @click="modal=true" :class="'myCard1 ' + (!scenarios.length? 'pulse': '')">
+      <template #title>Создать сценарий</template>
+      <template #footer>
+        <div class="flex gap-3 mt-1">
+          <Button icon="pi pi-plus" class="big-button"/>
+        </div>
+      </template>
+    </Card>
     <ScenarioCard :key="scenario.id" v-for="scenario in scenarios"
     :scenario="scenario"
     @scenario-delete="deleteScenarioConfirm(scenario.id)"
     @scenario-open="$router.push(`/scenarios/${scenario.id}`)"
     />
   </div>
-  <Button icon="pi pi-plus" class="big-button" @click="modal = true"/>
+
   <Dialog v-model:visible="modal" modal header="Создать сценарий" :style="{ width: '25rem' }">
     <div class="modal-form">
       <FloatLabel>
       <label for="name" class="font-semibold w-6rem">Название</label>
       <InputText id="name" class="flex-auto" autocomplete="off" v-model="scenario_name"/>
       </FloatLabel>
-      {{errorMessage}}
     </div>
 
     <div class="modal-buttons">
@@ -25,7 +33,6 @@
 </template>
 <script>
 import ScenarioCard from "@/components/ScenarioCard.vue";
-import axios from "axios";
 import {apiRequest} from "@/tools/requests";
 import router from "@/router";
 export default {
@@ -37,7 +44,6 @@ export default {
     return {
       modal: false,
       scenario_name:'',
-      errorMessage:''
     }
   },
   components:{
@@ -65,11 +71,16 @@ export default {
       })
     },
     async createScenario(){
-      const scenario = (await axios.post('/api/scenario/', {
+      const scenario = await apiRequest('post', '/api/scenario/', {
         name: this.scenario_name
-      })).data
+      }, this.$toast);
       if (!scenario.ok){
-        this.errorMessage=scenario.error;
+        this.$toast.add({
+          summary:'Ошибка получения сценариев',
+          detail: scenario.error,
+          life:3000,
+          severity:"error"
+        })
         return;
       }
       this.scenarios.push(scenario.data);
@@ -80,7 +91,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+
 .myGrid{
   display:flex;
   flex-wrap: wrap;
@@ -91,11 +104,19 @@ export default {
   justify-content:end;
 }
 .big-button {
+  margin-top:10px;
   width:50px;
   height:50px;
 }
+
 .modal-button{
   margin:5px;
+}
+.myCard1{
+  cursor: pointer;
+  width: 300px;
+  margin:10px;
+  border:solid 1px black;
 }
 
 .modal-form{
@@ -109,6 +130,17 @@ export default {
     display:flex;
     justify-content: center;
   }
+}
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
 
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
 }
 </style>

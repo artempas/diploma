@@ -25,8 +25,12 @@ import Textarea from "primevue/textarea";
 import Chip from "primevue/chip";
 import Tooltip from "primevue/tooltip";
 import '@/vue-flow-styles.css';
+import 'primevue/resources/themes/aura-light-noir/theme.css'
 import SelectButton from "primevue/selectbutton";
 import ToggleButton from "primevue/togglebutton";
+import Badge from "primevue/badge";
+import BadgeDirective from 'primevue/badgedirective';
+import ConfirmPopup from "primevue/confirmpopup";
 
 
 
@@ -38,6 +42,9 @@ app.use(ConfirmationService);
 app.use(ToastService);
 app.mount('#app');
 
+app.directive('badge', BadgeDirective);
+
+app.component('ConfirmPopup', ConfirmPopup)
 app.component('Password', Password)
 app.component('InputText', InputText)
 app.component('InputGroup', InputGroup);
@@ -56,5 +63,6 @@ app.component("Panel", Panel)
 app.directive('tooltip', Tooltip);
 app.component('SelectButton',SelectButton)
 app.component('ToggleButton',ToggleButton)
+app.component('Badge', Badge)
 
 

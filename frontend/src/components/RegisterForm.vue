@@ -1,5 +1,5 @@
 <script>
-import axios from "axios";
+import {apiRequest} from "@/tools/requests";
 
 export default {
   name: "RegisterForm",
@@ -13,10 +13,10 @@ export default {
   methods:{
     async register(){
       try{
-        const response = await axios.post(`api/users/register`, {
+        const response = await apiRequest('post',`api/users/register`, {
           username: this.username,
           password: this.password
-        })
+        }, this.$toast)
         console.log(response)
         if (!response.data.ok){
           console.log('ОШИБКА ТУТ')
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-
+  <Toast/>
   <div class="auth-page">
     <div class="text-center">
       <div class="text">Регистрация</div>

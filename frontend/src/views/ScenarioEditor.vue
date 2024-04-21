@@ -6,7 +6,7 @@ import ScenarioEditorSidebar from "@/components/ScenarioEditorSidebar.vue";
 import {constructNode, updateLabel} from "@/tools/nodeBuilder";
 import {apiRequest} from "@/tools/requests";
 import {MiniMap} from "@vue-flow/minimap";
-const { addEdges, onConnect, addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode, findNode, toObject, removeNodes } = useVueFlow({ id: 'schema' })
+const { fitView, addEdges, onConnect, addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode, findNode, getIncomers, removeNodes } = useVueFlow({ id: 'schema' })
 export default {
   name: "ScenarioEditor",
   computed: {
@@ -56,6 +56,17 @@ export default {
   },
   components: {MiniMap, ScenarioEditorSidebar, DropzoneBackground, VueFlow},
   methods:{
+    async createConnector(){
+      const res = await apiRequest('post', `api/scenario/${this.$route.params.id}/connector/`, {
+        platform:'telegram',
+        token: this.telegram_token
+      }, this.$toast)
+      if (res.ok){
+        this.connectors.push(res.data)
+        this.showCreateConnector=false
+        this.telegram_token='';
+      }
+    },
     addButton(){
       if (this.element.data.type==='menu'){
         const newButton=constructNode('menuButton', null, this.element, this.menu__buttons.length)[0];
@@ -65,47 +76,83 @@ export default {
       }
     },
     deleteButton(id){
+      this.menu__buttons_to_delete.push(id);
       if (this.element.data.type==='menu'){
         this.menu__buttons=this.menu__buttons.filter((e)=>e.id!==id)
       }
     },
+    deleteConnector(event, id){
+      this.$confirm.require({
+        target: event.currentTarget,
+        message: 'Вы точно хотите удалить коннектор',
+        icon: 'pi pi-exclamation-triangle',
+        rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
+        acceptClass: 'p-button-sm',
+        rejectLabel: 'Отмена',
+        acceptLabel: 'ДА!',
+        accept: () => {
+          apiRequest('delete', `/api/scenario/${this.$route.params.id}/connector/${id}`, null, this.$toast)
+          .then((res)=>{
+            if (res.ok){
+              this.$toast.add({severity:'success', summary:'Коннектор удалён', life:3000});
+              this.connectors=this.connectors.filter((c)=>c.id!==id);
+            }
+            else {
+              this.$toast.add({severity:"error", summary:"Ошибка", detail: res.error, life: 3000})
+            }
+          })
+        },
+      });
+    },
     saveSingleNode(){
       console.log(`Saving element ${JSON.stringify(this.element.data)}`)
-      switch (this.element.data.type){
-        case 'init':
-        case 'send_message':
-          this.element.data.text=this.send_message__message_text;
-          break;
-        case 'assign': {
-          this.element.data.variable = this.assign__variable_name;
-          this.element.data.value = this.assign__value;
-          break;
+      try {
+        switch (this.element.data.type) {
+          case 'init':
+          case 'send_message':
+            this.element.data.text = this.send_message__message_text;
+            break;
+          case 'assign': {
+            this.element.data.variable = this.assign__variable_name;
+            this.element.data.value = this.assign__value;
+            break;
+          }
+          case 'input': {
+            this.element.data.message = this.input__message_text;
+            this.element.data.variable = this.input__variable_name;
+            break;
+          }
+          case 'condition': {
+            this.element.data.message = this.input__message_text;
+            this.element.data.variable = this.input__variable_name;
+            break;
+          }
+          case 'menu': {
+            this.element.data.text = this.menu__message_text;
+            this.saveChildren()
+          }
         }
-        case 'input':{
-          this.element.data.message=this.input__message_text;
-          this.element.data.variable=this.input__variable_name;
-          break;
-        }
-        case 'condition':{
-          this.element.data.message=this.input__message_text;
-          this.element.data.variable=this.input__variable_name;
-          break;
-        }
-        case 'menu':{
-         this.element.data.text=this.menu__message_text;
-         this.saveChildren()
-        }
+      } catch (e){
+        console.log(JSON.stringify(e.message))
+        this.$toast.add({severity: 'error', summary: 'Ошибка', detail: e.message, life:3000})
+        return
       }
       updateLabel(this.element);
+      this.unsaved_changes++;
       this.showModal=false
     },
     saveChildren(){
+      if (!this.menu__buttons.length){
+        throw new Error('Нельзя сохранить элемент меню без кнопок');
+      }
       removeNodes(
-        this.menu__child_elements.filter((i)=>{
-          !this.menu__buttons.filter((j)=>i.id===j.id).length;
-        })
+        this.menu__buttons_to_delete
       );
+      this.menu__buttons_to_delete=[];
       for (let i of this.menu__buttons){
+        if (!i.data.text){
+          throw new Error('Текст кнопки не может быть пустым');
+        }
         let found = this.menu__child_elements.filter((j)=>i.id===j.id)[0];
         console.log(found)
         if (found){
@@ -122,9 +169,12 @@ export default {
     },
     nodeClick(e){
       this.element=findNode(e.node.id);
+      if (this.element?.parentNode){
+        this.element=findNode(this.element.parentNode)
+      }
       console.log(`Clicked`)
       console.log(e.node)
-      switch (e.node.data.type){
+      switch (this.element.data.type){
         case 'init':
         case 'send_message':
           this.send_message__message_text=this.element.data.text
@@ -144,6 +194,7 @@ export default {
           this.condition__operation=this.element.data.operation;
           break;
         case 'menu':
+          this.menu__buttons_to_delete=[]
           this.menu__message_text=this.element.data.text;
           this.menu__child_elements=this.schemaData.filter((element)=>element.parentNode===this.element.id);
           this.menu__buttons=JSON.parse(JSON.stringify(this.menu__child_elements));
@@ -151,34 +202,62 @@ export default {
       this.showModal=true;
     },
     onEdgesChanged(changes){
-          applyChanges(changes, this.schemaData)
+      changes.forEach((i)=> {
+        if (i.type === 'add' || i.type === 'remove')
+          this.unsaved_changes += 1;
+      }
+    );
+      applyChanges(changes, this.schemaData)
     },
     validateEdge(change){
-      try {
+      console.log(getIncomers(change.sourceHandle.split('-').pop()==='left' ? change.target:change.source).length)
+      if (getIncomers(change.sourceHandle.split('-').pop()==='left' ? change.target:change.source).length){
+        console.log('wrong connection');
+        console.log(change)
+      }
+      if (change.sourceNode && change.targetNode) return true;
         return (
           change.sourceHandle.split('-').pop()!==change.targetHandle.split('-').pop()
           && change.source!==change.target
           && findNode(change.source).parentNode !== findNode(change.target)?.id
           && findNode(change.target).parentNode !== findNode(change.source)?.id
-
+          && !getIncomers(change.sourceHandle.split('-').pop()==='left' ? change.target:change.source).length
         )
-      } catch (e){
-        console.error(e);
-        console.log(change)
-      }
+
     },
     onNodesChanged(changes){
       console.log(`NODE CHANGED ${JSON.stringify(changes)}`)
       changes.forEach(async (change)=>{
-        if (!(change.type==='remove' && change.id==='init')){
-          console.log('Applying change')
+        console.log(findNode(change.id))
+        if (this.ignore_validation || !(change.type==='remove' && (
+              change.id==='init' ||
+              findNode(change.id).parentNode && (
+                  !this.menu__buttons_to_delete.includes(change.id)
+              )
+        )
+        )){
+          const kids=this.schemaData.filter(i=>i.parentNode===change.id)
+          if (change.type==='remove' && kids.length ) {
+            this.ignore_validation=true;
+            removeNodes(kids)
+            this.ignore_validation=false
+          }
           applyChanges([change], this.schemaData)
+          if (change.dragging===false)
+            this.unsaved_changes++;
         }
       })
     },
     async saveSchema(){
-      console.log(toObject())
-      await apiRequest('patch', `/api/scenario/${this.$route.params.id}/setVisual`, {visual_data: this.schemaData}, this.$toast);
+      const response = await apiRequest('patch', `/api/scenario/${this.$route.params.id}/setVisual`, {visual_data: this.schemaData}, this.$toast);
+      if (response.ok){
+        this.unsaved_changes=0
+        this.$toast.add({
+          severity:'success',
+          summary:'Схема сохранена',
+          life:3000
+        })
+      }
     },
     onDragStart (event, type) {
       if (event.dataTransfer) {
@@ -218,13 +297,6 @@ export default {
 
 
         const newNodes = constructNode(this.draggedType, position)
-        console.log(newNodes)
-
-        /**
-         * Align node position after drop, so it's centered to the mouse
-         *
-         * We can hook into events even in a callback, and we can remove the event listener after it's been called.
-         */
         const {off} = onNodesInitialized(() => {
           updateNode(newNodes[0].id, (node) => ({
             position: {x: node.position.x - node.dimensions.width / 2, y: node.position.y - node.dimensions.height / 2},
@@ -239,10 +311,15 @@ export default {
   },
   data(){
     return{
+      scenario_name:'',
+      telegram_token:'',
+      showCreateConnector:false,
+      connectors:[],
       draggedType:null,
       isDragOver: false,
       isDragging: false,
       showModal:false,
+      ignore_validation:false,
       schemaData:[],
       element:{},
       variable_usage_tooltip:'В этом поле вы можете использовать переменные с помощью синтаксиса \${переменная}',
@@ -258,6 +335,8 @@ export default {
       condition__negation: false,
       menu__message_text:'',
       menu__child_elements:[],
+      menu__buttons_to_delete:[],
+      unsaved_changes: 0,
       menu__buttons:[{
         id:'0',
         data:{
@@ -267,13 +346,20 @@ export default {
     }
   },
   async mounted(){
-    const schema = await apiRequest('get', `/api/scenario/${this.$route.params.id}`)
-    const schema_data=JSON.parse(schema.data.visual_data)
-    this.schemaData =schema_data?.length ? schema_data: constructNode('init', {x:10, y:10})
-    this.schemaData.map((el)=>updateLabel(el))
+    apiRequest('get', `/api/scenario/${this.$route.params.id}`, null, this.$toast).then((schema)=>{
+      const schema_data=JSON.parse(schema.data.visual_data)
+      this.schemaData =schema_data?.length ? schema_data: constructNode('init', {x:10, y:10})
+      this.schemaData.map((el)=>updateLabel(el))
+      this.scenario_name=schema.data.name;
+    }).then(()=>fitView())
+    apiRequest('get', `/api/scenario/${this.$route.params.id}/connector`, null, this.$toast).then((response)=>{
+      this.connectors=response.data;
+    })
+
     watch(this.isDragging, (dragging) => {
       document.body.style.userSelect = dragging ? 'none' : ''
     })
+    this.unsaved_changes=0;
   },
   beforeMount() {
     // Register your event handler, can technically be called in any lifecycle phase
@@ -284,16 +370,27 @@ export default {
 </script>
 
 <template>
+  <ConfirmPopup/>
+  <Toast/>
   <div class="page">
+    <div class="top-topbar">
     <Button icon="pi pi-arrow-left" @click="$router.go(-1)" label="Назад" style="float: left; width:150px; height:60px; font-size:20px;"/>
+    <div class="text">{{scenario_name}}</div>
+    </div>
     <div @drop="onDrop">
       <div class="topbar">
         <ScenarioEditorSidebar @onDragStart="onDragStart" />
-        <div class="topbar-right-buttons">
-        <Button icon="pi pi-save" size="large" class="topbar-right-button" @click="saveSchema" label="Сохранить"/>
+        <div class="topbar-right-buttons p-overlay-badge">
+          <div class="topbar-right-button Connectors" v-for="connector in connectors">
+            <i class="pi pi-telegram" v-badge.danger="'x'" style="font-size:50px;" @click="deleteConnector($event, connector.id)"/>
+          </div>
+          <Button class="topbar-right-button" icon="pi pi-plus" size="large" style="width: 50px" rounded @click="showCreateConnector=true"/>
+          <Badge v-if="unsaved_changes" :value="unsaved_changes" severity="warning" style="z-index: 100;"/>
+          <Button icon="pi pi-save" size="large" class="topbar-right-button" @click="saveSchema" label="Сохранить"/>
         </div>
       </div>
       <VueFlow
+
           id="schema"
           class="basicflow"
           v-model="schemaData"
@@ -308,7 +405,7 @@ export default {
         <Background pattern-color="#aaa" :gap="16" />
         <DropzoneBackground
             :style="{
-              backgroundColor: isDragOver ? '#e7f3ff' : 'transparent',
+              backgroundColor: isDragOver ? '#c5c5c5' : 'transparent',
               transition: 'background-color 0.2s ease',
             }"
         />
@@ -316,6 +413,19 @@ export default {
       </VueFlow>
     </div>
   </div>
+  <Dialog v-model:visible="showCreateConnector" modal header="Создать коннектор">
+    <div style="margin-bottom: 10px">Настройки</div>
+    <FloatLabel class="luboy">
+      <label  class="block text-900 font-medium mb-2">
+        Токен
+      </label>
+      <Password v-model="telegram_token" required :feedback="false"/>
+    </FloatLabel>
+    <div style="margin-top: 10px">
+      <Button type="button" label="Отмена" severity="secondary" @click="showCreateConnector=false"></Button>
+      <Button type="button" label="Сохранить" @click="createConnector"></Button>
+    </div>
+  </Dialog>
   <Dialog v-model:visible="showMessageModal" modal header="Сообщение" :style="{ width: '25rem' }">
     <div style="margin-bottom: 10px">Настройки</div>
     <FloatLabel class="luboy">
@@ -409,12 +519,23 @@ export default {
 </template>
 
 <style scoped>
+.top-topbar{
+  display:flex;
+  flex-direction:row;
+}
 .basicflow{
   width:100%;
-  height:800px;
+  height:750px;
   border: solid black 2px;
 }
-
+.text{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:60px;
+  font-size: 50px;
+  width:100%
+}
 .topbar{
   display:flex;
   flex-direction:row;
@@ -427,10 +548,12 @@ export default {
   height:60px;
   display:flex;
   flex-direction:row;
+  row-gap: 5px;
   align-items: center;
   justify-content: flex-end;
 }
 .topbar-right-button{
+  margin-left: 10px;
   height:50px;
 }
 
@@ -453,5 +576,4 @@ export default {
   justify-content: center;
   row-gap: 10px;
 }
-
 </style>

@@ -71,7 +71,7 @@ export const typesMap={
     'send_message':{
         type:'default',
         class: ['node'],
-        connectable: 'single',
+        // connectable: 'single',
         label: getLabel('send_message', 'Сообщение'),
         targetPosition: Position.Right,
         dimensions:{
@@ -89,7 +89,7 @@ export const typesMap={
         targetPosition: Position.Right,
         class: ['node'],
         sourcePosition: Position.Left,
-        connectable: 'single',
+        // connectable: 'single',
         data: {
             type: 'assign',
             variable:'variable',
@@ -103,7 +103,7 @@ export const typesMap={
         targetPosition: Position.Right,
         sourcePosition: Position.Left,
         label:getLabel('input', 'Ввод\nvariable='),
-        connectable: 'single',
+        // connectable: 'single',
         data:{
             type:'input',
             variable:'variable',
@@ -112,7 +112,7 @@ export const typesMap={
     },
     'menu':{
         type: 'input',
-        connectable: 'single',
+        // connectable: 'single',
         class:['menu-node', 'node'],
         sourcePosition: Position.Left,
         label: {...getLabel('menu','Меню')},
@@ -137,7 +137,7 @@ export const typesMap={
         {
             type: 'input',
             class: ['node'],
-            connectable: 'single',
+            // connectable: 'single',
             dimensions:{
                 height: 1700
             },

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <AuthForm @auth-success="authenticated"></AuthForm>
+    <AuthForm @auth-success="authenticated"></AuthForm>
 </template>
 
 <style scoped>

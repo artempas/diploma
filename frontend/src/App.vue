@@ -1,39 +1,18 @@
 <template>
-  <Toast/>
-
-
-  <SelectButton
-      v-model="theme"
-      :options="options"
-      >
-  </SelectButton>
-<router-view></router-view>
+    <router-view></router-view>
 </template>
 
 <script>
 
 
-import SelectButton from "primevue/selectbutton";
 export default {
   name: 'App',
-  components: { SelectButton },
-  data:()=>({
-    theme: 'light',
-    options: ['light', 'dark']
-  }),
-  // watch: {
-  //   theme: {
-  //     handler(val) {
-  //       this.$primevue.changeTheme(this.theme, val, 'theme', () => {
-  //       })
-  //       localStorage.setItem('theme',val)
-  //     }, immediate: true
-  //   }
-  // }
 }
 </script>
 
 <style>
+
+
 
 #app {
   font-family: "Nunito", sans-serif;
