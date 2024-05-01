@@ -6,7 +6,7 @@ import ScenarioEditorSidebar from "@/components/ScenarioEditorSidebar.vue";
 import {constructNode, updateLabel} from "@/tools/nodeBuilder";
 import {apiRequest} from "@/tools/requests";
 import {MiniMap} from "@vue-flow/minimap";
-const { fitView, addEdges, onConnect, addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode, findNode, getIncomers, removeNodes } = useVueFlow({ id: 'schema' })
+const { fitView, addEdges, onConnect, addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode, findNode, getIncomers, removeNodes, getOutgoers } = useVueFlow({ id: 'schema' })
 export default {
   name: "ScenarioEditor",
   computed: {
@@ -123,8 +123,10 @@ export default {
             break;
           }
           case 'condition': {
-            this.element.data.message = this.input__message_text;
-            this.element.data.variable = this.input__variable_name;
+            this.element.data.first_value=this.condition__first_value;
+            this.element.data.second_value=this.condition__first_value;
+            this.element.data.operation=this.condition__operation;
+            this.element.data.negation=this.condition__negation;
             break;
           }
           case 'menu': {
@@ -138,9 +140,15 @@ export default {
         return
       }
       updateLabel(this.element);
+      if (this.element.data.type==='menu'){
+        updateChildLocation(this.menu__child_elements)
+      } else if (this.element.data.type==='condition'){
+        updateChildLocation(this.schemaData.filter((e)=>e.parentNode===this.element.id))
+      }
       this.unsaved_changes++;
       this.showModal=false
     },
+    updateChildLocation(){},
     saveChildren(){
       if (!this.menu__buttons.length){
         throw new Error('Нельзя сохранить элемент меню без кнопок');
@@ -203,6 +211,8 @@ export default {
     },
     onEdgesChanged(changes){
       changes.forEach((i)=> {
+        if (i.item)
+          i.item.animated=true;
         if (i.type === 'add' || i.type === 'remove')
           this.unsaved_changes += 1;
       }
@@ -210,18 +220,19 @@ export default {
       applyChanges(changes, this.schemaData)
     },
     validateEdge(change){
-      console.log(getIncomers(change.sourceHandle.split('-').pop()==='left' ? change.target:change.source).length)
-      if (getIncomers(change.sourceHandle.split('-').pop()==='left' ? change.target:change.source).length){
-        console.log('wrong connection');
-        console.log(change)
-      }
+      console.log('INCOMERS:')
+      console.log(getIncomers(change.source))
+      console.log(getIncomers(change.target))
+      console.log('OUTGOERS:')
+      console.log(getOutgoers(change.source))
+      console.log(getOutgoers(change.target))
       if (change.sourceNode && change.targetNode) return true;
         return (
           change.sourceHandle.split('-').pop()!==change.targetHandle.split('-').pop()
           && change.source!==change.target
           && findNode(change.source).parentNode !== findNode(change.target)?.id
           && findNode(change.target).parentNode !== findNode(change.source)?.id
-          && !getIncomers(change.sourceHandle.split('-').pop()==='left' ? change.target:change.source).length
+          && !getOutgoers(change.source).length
         )
 
     },
@@ -306,6 +317,7 @@ export default {
 
         })
         addNodes(newNodes)
+        this.unsaved_changes++;
       } catch (e){console.log(e)}
     }
   },

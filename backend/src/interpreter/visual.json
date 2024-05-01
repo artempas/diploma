@@ -1,0 +1,3583 @@
+[
+  {
+    "id": "init",
+    "type": "output",
+    "dimensions": {
+      "width": 150,
+      "height": 80
+    },
+    "handleBounds": {
+      "target": [
+        {
+          "id": "init__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 10,
+      "y": 10,
+      "z": 0
+    },
+    "connectable": "single",
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 10,
+      "y": 10
+    },
+    "data": {
+      "type": "init",
+      "text": "Начало"
+    },
+    "events": {},
+    "class": [
+      "node"
+    ],
+    "label": {
+      "__v_isVNode": true,
+      "__v_skip": true,
+      "type": "div",
+      "props": {
+        "class": "init-label node-label"
+      },
+      "key": null,
+      "ref": null,
+      "scopeId": null,
+      "slotScopeIds": null,
+      "children": [
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "h4",
+          "props": {
+            "class": "node-label-name"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Начало",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        },
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "p",
+          "props": {
+            "class": "node-label-content"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Начало",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        }
+      ],
+      "component": null,
+      "suspense": null,
+      "ssContent": null,
+      "ssFallback": null,
+      "dirs": null,
+      "transition": null,
+      "el": null,
+      "anchor": null,
+      "target": null,
+      "targetAnchor": null,
+      "staticCount": 0,
+      "shapeFlag": 17,
+      "patchFlag": 0,
+      "dynamicProps": null,
+      "dynamicChildren": null,
+      "appContext": null,
+      "ctx": null
+    },
+    "targetPosition": "right",
+    "sourcePosition": "left"
+  },
+  {
+    "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+    "type": "default",
+    "dimensions": {
+      "width": 150,
+      "height": 80
+    },
+    "handleBounds": {
+      "source": [
+        {
+          "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left",
+          "position": "left",
+          "x": -6.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ],
+      "target": [
+        {
+          "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 299,
+      "y": 34,
+      "z": 0
+    },
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 299,
+      "y": 34
+    },
+    "data": {
+      "type": "send_message",
+      "text": "Сообщение"
+    },
+    "events": {},
+    "class": [
+      "node"
+    ],
+    "label": {
+      "__v_isVNode": true,
+      "__v_skip": true,
+      "type": "div",
+      "props": {
+        "class": "send_message-label node-label"
+      },
+      "key": null,
+      "ref": null,
+      "scopeId": null,
+      "slotScopeIds": null,
+      "children": [
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "h4",
+          "props": {
+            "class": "node-label-name"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Сообщение",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        },
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "p",
+          "props": {
+            "class": "node-label-content"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Сообщение",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        }
+      ],
+      "component": null,
+      "suspense": null,
+      "ssContent": null,
+      "ssFallback": null,
+      "dirs": null,
+      "transition": null,
+      "el": null,
+      "anchor": null,
+      "target": null,
+      "targetAnchor": null,
+      "staticCount": 0,
+      "shapeFlag": 17,
+      "patchFlag": 0,
+      "dynamicProps": null,
+      "dynamicChildren": null,
+      "appContext": null,
+      "ctx": null
+    },
+    "targetPosition": "right",
+    "sourcePosition": "left"
+  },
+  {
+    "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0",
+    "type": "default",
+    "dimensions": {
+      "width": 150,
+      "height": 80
+    },
+    "handleBounds": {
+      "source": [
+        {
+          "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-left",
+          "position": "left",
+          "x": -6.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ],
+      "target": [
+        {
+          "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 145,
+      "y": 204,
+      "z": 0
+    },
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 145,
+      "y": 204
+    },
+    "data": {
+      "type": "input",
+      "variable": "variable",
+      "message": "Ввод"
+    },
+    "events": {},
+    "class": [
+      "node"
+    ],
+    "targetPosition": "right",
+    "sourcePosition": "left",
+    "label": {
+      "__v_isVNode": true,
+      "__v_skip": true,
+      "type": "div",
+      "props": {
+        "class": "input-label node-label"
+      },
+      "key": null,
+      "ref": null,
+      "scopeId": null,
+      "slotScopeIds": null,
+      "children": [
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "h4",
+          "props": {
+            "class": "node-label-name"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Ввод",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        },
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "p",
+          "props": {
+            "class": "node-label-content"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Ввод\nvariable=",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        }
+      ],
+      "component": null,
+      "suspense": null,
+      "ssContent": null,
+      "ssFallback": null,
+      "dirs": null,
+      "transition": null,
+      "el": null,
+      "anchor": null,
+      "target": null,
+      "targetAnchor": null,
+      "staticCount": 0,
+      "shapeFlag": 17,
+      "patchFlag": 0,
+      "dynamicProps": null,
+      "dynamicChildren": null,
+      "appContext": null,
+      "ctx": null
+    }
+  },
+  {
+    "id": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49",
+    "type": "input",
+    "dimensions": {
+      "width": 150,
+      "height": 80
+    },
+    "handleBounds": {
+      "source": [
+        {
+          "id": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49__handle-left",
+          "position": "left",
+          "x": -6.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 365,
+      "y": 176,
+      "z": 0
+    },
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": true,
+    "position": {
+      "x": 365,
+      "y": 176
+    },
+    "data": {
+      "type": "condition",
+      "first_value": "1",
+      "operation": "=",
+      "second_value": "1",
+      "negation": false
+    },
+    "events": {},
+    "class": [
+      "node"
+    ],
+    "sourcePosition": "left",
+    "label": {
+      "__v_isVNode": true,
+      "__v_skip": true,
+      "type": "div",
+      "props": {
+        "class": "condition-label node-label"
+      },
+      "key": null,
+      "ref": null,
+      "scopeId": null,
+      "slotScopeIds": null,
+      "children": [
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "h4",
+          "props": {
+            "class": "node-label-name"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Условие",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        },
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "p",
+          "props": {
+            "class": "node-label-content"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "1=1",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        }
+      ],
+      "component": null,
+      "suspense": null,
+      "ssContent": null,
+      "ssFallback": null,
+      "dirs": null,
+      "transition": null,
+      "el": null,
+      "anchor": null,
+      "target": null,
+      "targetAnchor": null,
+      "staticCount": 0,
+      "shapeFlag": 17,
+      "patchFlag": 0,
+      "dynamicProps": null,
+      "dynamicChildren": null,
+      "appContext": null,
+      "ctx": null
+    }
+  },
+  {
+    "id": "3a1c36a8-72c8-4c6c-8e87-e3dc749f64b6",
+    "type": "output",
+    "dimensions": {
+      "width": 150,
+      "height": 40
+    },
+    "handleBounds": {
+      "target": [
+        {
+          "id": "3a1c36a8-72c8-4c6c-8e87-e3dc749f64b6__handle-right",
+          "position": "right",
+          "x": 139.5,
+          "y": 12.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 365,
+      "y": 256,
+      "z": 1
+    },
+    "connectable": "single",
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 0,
+      "y": 80
+    },
+    "data": {},
+    "events": {},
+    "class": [
+      "nodrag",
+      "child",
+      "true"
+    ],
+    "targetPosition": "right",
+    "label": "Истина",
+    "parentNode": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49"
+  },
+  {
+    "id": "30e554a2-b9e5-4d67-be5c-bb68389ac549",
+    "type": "output",
+    "dimensions": {
+      "width": 150,
+      "height": 40
+    },
+    "handleBounds": {
+      "target": [
+        {
+          "id": "30e554a2-b9e5-4d67-be5c-bb68389ac549__handle-right",
+          "position": "right",
+          "x": 139.5,
+          "y": 12.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 365,
+      "y": 296,
+      "z": 1
+    },
+    "connectable": "single",
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 0,
+      "y": 120
+    },
+    "data": {},
+    "events": {},
+    "class": [
+      "nodrag",
+      "child",
+      "false"
+    ],
+    "targetPosition": "right",
+    "label": "Ложь",
+    "parentNode": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49"
+  },
+  {
+    "id": "84046f74-60cc-4e98-9e23-a552e28383d8",
+    "type": "default",
+    "dimensions": {
+      "width": 150,
+      "height": 80
+    },
+    "handleBounds": {
+      "source": [
+        {
+          "id": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-left",
+          "position": "left",
+          "x": -6.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ],
+      "target": [
+        {
+          "id": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 626,
+      "y": 87,
+      "z": 0
+    },
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 626,
+      "y": 87
+    },
+    "data": {
+      "type": "assign",
+      "variable": "variable",
+      "value": "value"
+    },
+    "events": {},
+    "targetPosition": "right",
+    "class": [
+      "node"
+    ],
+    "sourcePosition": "left",
+    "label": {
+      "__v_isVNode": true,
+      "__v_skip": true,
+      "type": "div",
+      "props": {
+        "class": "assign-label node-label"
+      },
+      "key": null,
+      "ref": null,
+      "scopeId": null,
+      "slotScopeIds": null,
+      "children": [
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "h4",
+          "props": {
+            "class": "node-label-name"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Присвоить",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        },
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "p",
+          "props": {
+            "class": "node-label-content"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "variable=value",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        }
+      ],
+      "component": null,
+      "suspense": null,
+      "ssContent": null,
+      "ssFallback": null,
+      "dirs": null,
+      "transition": null,
+      "el": null,
+      "anchor": null,
+      "target": null,
+      "targetAnchor": null,
+      "staticCount": 0,
+      "shapeFlag": 17,
+      "patchFlag": 0,
+      "dynamicProps": null,
+      "dynamicChildren": null,
+      "appContext": null,
+      "ctx": null
+    }
+  },
+  {
+    "id": "b2a04631-9a3a-4705-96e0-7b1a320c5dab",
+    "type": "input",
+    "dimensions": {
+      "width": 150,
+      "height": 80
+    },
+    "handleBounds": {
+      "source": [
+        {
+          "id": "b2a04631-9a3a-4705-96e0-7b1a320c5dab__handle-left",
+          "position": "left",
+          "x": -6.5,
+          "y": 32.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 619,
+      "y": 200,
+      "z": 0
+    },
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": true,
+    "position": {
+      "x": 619,
+      "y": 200
+    },
+    "data": {
+      "type": "menu",
+      "text": "Меню"
+    },
+    "events": {},
+    "class": [
+      "menu-node",
+      "node"
+    ],
+    "sourcePosition": "left",
+    "label": {
+      "__v_isVNode": true,
+      "__v_skip": true,
+      "type": "div",
+      "props": {
+        "class": "menu-label node-label"
+      },
+      "key": null,
+      "ref": null,
+      "scopeId": null,
+      "slotScopeIds": null,
+      "children": [
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "h4",
+          "props": {
+            "class": "node-label-name"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Меню",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        },
+        {
+          "__v_isVNode": true,
+          "__v_skip": true,
+          "type": "p",
+          "props": {
+            "class": "node-label-content"
+          },
+          "key": null,
+          "ref": null,
+          "scopeId": null,
+          "slotScopeIds": null,
+          "children": [
+            {
+              "__v_isVNode": true,
+              "__v_skip": true,
+              "props": null,
+              "key": null,
+              "ref": null,
+              "scopeId": null,
+              "slotScopeIds": null,
+              "children": "Меню",
+              "target": null,
+              "targetAnchor": null,
+              "staticCount": 0,
+              "shapeFlag": 8,
+              "patchFlag": 0,
+              "dynamicProps": null,
+              "dynamicChildren": null,
+              "appContext": null,
+              "dirs": null,
+              "transition": null,
+              "component": null,
+              "suspense": null,
+              "ssContent": null,
+              "ssFallback": null,
+              "el": {},
+              "anchor": null,
+              "ctx": null
+            }
+          ],
+          "target": null,
+          "targetAnchor": null,
+          "staticCount": 0,
+          "shapeFlag": 17,
+          "patchFlag": 0,
+          "dynamicProps": null,
+          "dynamicChildren": null,
+          "appContext": null,
+          "dirs": null,
+          "transition": null,
+          "component": null,
+          "suspense": null,
+          "ssContent": null,
+          "ssFallback": null,
+          "el": {},
+          "anchor": null,
+          "ctx": null
+        }
+      ],
+      "component": null,
+      "suspense": null,
+      "ssContent": null,
+      "ssFallback": null,
+      "dirs": null,
+      "transition": null,
+      "el": null,
+      "anchor": null,
+      "target": null,
+      "targetAnchor": null,
+      "staticCount": 0,
+      "shapeFlag": 17,
+      "patchFlag": 0,
+      "dynamicProps": null,
+      "dynamicChildren": null,
+      "appContext": null,
+      "ctx": null
+    }
+  },
+  {
+    "id": "4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c",
+    "type": "output",
+    "dimensions": {
+      "width": 150,
+      "height": 36
+    },
+    "handleBounds": {
+      "target": [
+        {
+          "id": "4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 10.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 619,
+      "y": 280,
+      "z": 1
+    },
+    "connectable": "single",
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 0,
+      "y": 80
+    },
+    "data": {
+      "type": "menuButton",
+      "text": "Вариант 1"
+    },
+    "events": {},
+    "targetPosition": "right",
+    "class": [
+      "nodrag",
+      "child"
+    ],
+    "label": "Вариант 1",
+    "parentNode": "b2a04631-9a3a-4705-96e0-7b1a320c5dab"
+  },
+  {
+    "id": "dbc0494a-78d6-4d0f-a2fb-e338838ea085",
+    "type": "output",
+    "dimensions": {
+      "width": 150,
+      "height": 36
+    },
+    "handleBounds": {
+      "target": [
+        {
+          "id": "dbc0494a-78d6-4d0f-a2fb-e338838ea085__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 10.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 619,
+      "y": 320,
+      "z": 1
+    },
+    "connectable": "single",
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 0,
+      "y": 120
+    },
+    "data": {
+      "type": "menuButton",
+      "text": "Вариант 2"
+    },
+    "events": {},
+    "targetPosition": "right",
+    "class": [
+      "nodrag",
+      "child"
+    ],
+    "label": "Вариант 2",
+    "parentNode": "b2a04631-9a3a-4705-96e0-7b1a320c5dab"
+  },
+  {
+    "id": "d84b149d-dc2a-4a23-bca3-41554089c570",
+    "type": "output",
+    "dimensions": {
+      "width": 150,
+      "height": 36
+    },
+    "handleBounds": {
+      "target": [
+        {
+          "id": "d84b149d-dc2a-4a23-bca3-41554089c570__handle-right",
+          "position": "right",
+          "x": 141.5,
+          "y": 10.5,
+          "width": 15,
+          "height": 15
+        }
+      ]
+    },
+    "computedPosition": {
+      "x": 619,
+      "y": 360,
+      "z": 1
+    },
+    "connectable": "single",
+    "selected": false,
+    "dragging": false,
+    "resizing": false,
+    "initialized": true,
+    "isParent": false,
+    "position": {
+      "x": 0,
+      "y": 160
+    },
+    "data": {
+      "type": "menuButton",
+      "text": "Вариант 3"
+    },
+    "events": {},
+    "targetPosition": "right",
+    "class": [
+      "nodrag",
+      "child"
+    ],
+    "label": "Вариант 3",
+    "parentNode": "b2a04631-9a3a-4705-96e0-7b1a320c5dab"
+  },
+  {
+    "id": "vueflow__edge-52875fa3-86fd-4aed-a127-6dbba191c7c052875fa3-86fd-4aed-a127-6dbba191c7c0__handle-left-initinit__handle-right",
+    "type": "default",
+    "source": "52875fa3-86fd-4aed-a127-6dbba191c7c0",
+    "target": "init",
+    "sourceHandle": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-left",
+    "targetHandle": "init__handle-right",
+    "data": {},
+    "events": {},
+    "label": "",
+    "sourceNode": {
+      "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 145,
+        "y": 204,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 145,
+        "y": 204
+      },
+      "data": {
+        "type": "input",
+        "variable": "variable",
+        "message": "Ввод"
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "targetPosition": "right",
+      "sourcePosition": "left",
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "input-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Ввод",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Ввод\nvariable=",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      }
+    },
+    "targetNode": {
+      "id": "init",
+      "type": "output",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "target": [
+          {
+            "id": "init__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 10,
+        "y": 10,
+        "z": 0
+      },
+      "connectable": "single",
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "data": {
+        "type": "init",
+        "text": "Начало"
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "init-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Начало",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Начало",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      },
+      "targetPosition": "right",
+      "sourcePosition": "left"
+    },
+    "sourceX": 138.5,
+    "sourceY": 244,
+    "targetX": 166.5,
+    "targetY": 50
+  },
+  {
+    "id": "vueflow__edge-ff09d16e-ef72-4492-b5a7-82535e036dd0ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left-52875fa3-86fd-4aed-a127-6dbba191c7c052875fa3-86fd-4aed-a127-6dbba191c7c0__handle-right",
+    "type": "default",
+    "source": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+    "target": "52875fa3-86fd-4aed-a127-6dbba191c7c0",
+    "sourceHandle": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left",
+    "targetHandle": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-right",
+    "data": {},
+    "events": {},
+    "label": "",
+    "sourceNode": {
+      "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 299,
+        "y": 34,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 299,
+        "y": 34
+      },
+      "data": {
+        "type": "send_message",
+        "text": "Сообщение"
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "send_message-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Сообщение",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Сообщение",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      },
+      "targetPosition": "right",
+      "sourcePosition": "left"
+    },
+    "targetNode": {
+      "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "52875fa3-86fd-4aed-a127-6dbba191c7c0__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 145,
+        "y": 204,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 145,
+        "y": 204
+      },
+      "data": {
+        "type": "input",
+        "variable": "variable",
+        "message": "Ввод"
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "targetPosition": "right",
+      "sourcePosition": "left",
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "input-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Ввод",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Ввод\nvariable=",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      }
+    },
+    "sourceX": 292.5,
+    "sourceY": 74,
+    "targetX": 301.5,
+    "targetY": 244
+  },
+  {
+    "id": "vueflow__edge-f833dca9-ad17-4fa6-ad91-d9fdb0c74d49f833dca9-ad17-4fa6-ad91-d9fdb0c74d49__handle-left-ff09d16e-ef72-4492-b5a7-82535e036dd0ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-right",
+    "type": "default",
+    "source": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49",
+    "target": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+    "sourceHandle": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49__handle-left",
+    "targetHandle": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-right",
+    "data": {},
+    "events": {},
+    "label": "",
+    "sourceNode": {
+      "id": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49",
+      "type": "input",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 365,
+        "y": 176,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": true,
+      "position": {
+        "x": 365,
+        "y": 176
+      },
+      "data": {
+        "type": "condition",
+        "first_value": "1",
+        "operation": "=",
+        "second_value": "1",
+        "negation": false
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "sourcePosition": "left",
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "condition-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Условие",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "1=1",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      }
+    },
+    "targetNode": {
+      "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 299,
+        "y": 34,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 299,
+        "y": 34
+      },
+      "data": {
+        "type": "send_message",
+        "text": "Сообщение"
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "send_message-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Сообщение",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Сообщение",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      },
+      "targetPosition": "right",
+      "sourcePosition": "left"
+    },
+    "sourceX": 358.5,
+    "sourceY": 216,
+    "targetX": 455.5,
+    "targetY": 74
+  },
+  {
+    "id": "vueflow__edge-84046f74-60cc-4e98-9e23-a552e28383d884046f74-60cc-4e98-9e23-a552e28383d8__handle-left-3a1c36a8-72c8-4c6c-8e87-e3dc749f64b63a1c36a8-72c8-4c6c-8e87-e3dc749f64b6__handle-right",
+    "type": "default",
+    "source": "84046f74-60cc-4e98-9e23-a552e28383d8",
+    "target": "3a1c36a8-72c8-4c6c-8e87-e3dc749f64b6",
+    "sourceHandle": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-left",
+    "targetHandle": "3a1c36a8-72c8-4c6c-8e87-e3dc749f64b6__handle-right",
+    "data": {},
+    "events": {},
+    "label": "",
+    "sourceNode": {
+      "id": "84046f74-60cc-4e98-9e23-a552e28383d8",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 626,
+        "y": 87,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 626,
+        "y": 87
+      },
+      "data": {
+        "type": "assign",
+        "variable": "variable",
+        "value": "value"
+      },
+      "events": {},
+      "targetPosition": "right",
+      "class": [
+        "node"
+      ],
+      "sourcePosition": "left",
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "assign-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Присвоить",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "variable=value",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      }
+    },
+    "targetNode": {
+      "id": "3a1c36a8-72c8-4c6c-8e87-e3dc749f64b6",
+      "type": "output",
+      "dimensions": {
+        "width": 150,
+        "height": 40
+      },
+      "handleBounds": {
+        "target": [
+          {
+            "id": "3a1c36a8-72c8-4c6c-8e87-e3dc749f64b6__handle-right",
+            "position": "right",
+            "x": 139.5,
+            "y": 12.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 365,
+        "y": 256,
+        "z": 1
+      },
+      "connectable": "single",
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 0,
+        "y": 80
+      },
+      "data": {},
+      "events": {},
+      "class": [
+        "nodrag",
+        "child",
+        "true"
+      ],
+      "targetPosition": "right",
+      "label": "Истина",
+      "parentNode": "f833dca9-ad17-4fa6-ad91-d9fdb0c74d49"
+    },
+    "sourceX": 619.5,
+    "sourceY": 127,
+    "targetX": 519.5,
+    "targetY": 276
+  },
+  {
+    "id": "vueflow__edge-b2a04631-9a3a-4705-96e0-7b1a320c5dabb2a04631-9a3a-4705-96e0-7b1a320c5dab__handle-left-84046f74-60cc-4e98-9e23-a552e28383d884046f74-60cc-4e98-9e23-a552e28383d8__handle-right",
+    "type": "default",
+    "source": "b2a04631-9a3a-4705-96e0-7b1a320c5dab",
+    "target": "84046f74-60cc-4e98-9e23-a552e28383d8",
+    "sourceHandle": "b2a04631-9a3a-4705-96e0-7b1a320c5dab__handle-left",
+    "targetHandle": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-right",
+    "data": {},
+    "events": {},
+    "label": "",
+    "sourceNode": {
+      "id": "b2a04631-9a3a-4705-96e0-7b1a320c5dab",
+      "type": "input",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "b2a04631-9a3a-4705-96e0-7b1a320c5dab__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 619,
+        "y": 200,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": true,
+      "position": {
+        "x": 619,
+        "y": 200
+      },
+      "data": {
+        "type": "menu",
+        "text": "Меню"
+      },
+      "events": {},
+      "class": [
+        "menu-node",
+        "node"
+      ],
+      "sourcePosition": "left",
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "menu-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Меню",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Меню",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      }
+    },
+    "targetNode": {
+      "id": "84046f74-60cc-4e98-9e23-a552e28383d8",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "84046f74-60cc-4e98-9e23-a552e28383d8__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 626,
+        "y": 87,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 626,
+        "y": 87
+      },
+      "data": {
+        "type": "assign",
+        "variable": "variable",
+        "value": "value"
+      },
+      "events": {},
+      "targetPosition": "right",
+      "class": [
+        "node"
+      ],
+      "sourcePosition": "left",
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "assign-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Присвоить",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "variable=value",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      }
+    },
+    "sourceX": 612.5,
+    "sourceY": 240,
+    "targetX": 782.5,
+    "targetY": 127
+  },
+  {
+    "id": "vueflow__edge-ff09d16e-ef72-4492-b5a7-82535e036dd0ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left-4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c__handle-right",
+    "type": "default",
+    "source": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+    "target": "4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c",
+    "sourceHandle": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left",
+    "targetHandle": "4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c__handle-right",
+    "data": {},
+    "events": {},
+    "label": "",
+    "sourceNode": {
+      "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0",
+      "type": "default",
+      "dimensions": {
+        "width": 150,
+        "height": 80
+      },
+      "handleBounds": {
+        "source": [
+          {
+            "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-left",
+            "position": "left",
+            "x": -6.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ],
+        "target": [
+          {
+            "id": "ff09d16e-ef72-4492-b5a7-82535e036dd0__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 32.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 299,
+        "y": 34,
+        "z": 0
+      },
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 299,
+        "y": 34
+      },
+      "data": {
+        "type": "send_message",
+        "text": "Сообщение"
+      },
+      "events": {},
+      "class": [
+        "node"
+      ],
+      "label": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "type": "div",
+        "props": {
+          "class": "send_message-label node-label"
+        },
+        "key": null,
+        "ref": null,
+        "scopeId": null,
+        "slotScopeIds": null,
+        "children": [
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "h4",
+            "props": {
+              "class": "node-label-name"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Сообщение",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          },
+          {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "type": "p",
+            "props": {
+              "class": "node-label-content"
+            },
+            "key": null,
+            "ref": null,
+            "scopeId": null,
+            "slotScopeIds": null,
+            "children": [
+              {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "props": null,
+                "key": null,
+                "ref": null,
+                "scopeId": null,
+                "slotScopeIds": null,
+                "children": "Сообщение",
+                "target": null,
+                "targetAnchor": null,
+                "staticCount": 0,
+                "shapeFlag": 8,
+                "patchFlag": 0,
+                "dynamicProps": null,
+                "dynamicChildren": null,
+                "appContext": null,
+                "dirs": null,
+                "transition": null,
+                "component": null,
+                "suspense": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "el": {},
+                "anchor": null,
+                "ctx": null
+              }
+            ],
+            "target": null,
+            "targetAnchor": null,
+            "staticCount": 0,
+            "shapeFlag": 17,
+            "patchFlag": 0,
+            "dynamicProps": null,
+            "dynamicChildren": null,
+            "appContext": null,
+            "dirs": null,
+            "transition": null,
+            "component": null,
+            "suspense": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "el": {},
+            "anchor": null,
+            "ctx": null
+          }
+        ],
+        "component": null,
+        "suspense": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "dirs": null,
+        "transition": null,
+        "el": null,
+        "anchor": null,
+        "target": null,
+        "targetAnchor": null,
+        "staticCount": 0,
+        "shapeFlag": 17,
+        "patchFlag": 0,
+        "dynamicProps": null,
+        "dynamicChildren": null,
+        "appContext": null,
+        "ctx": null
+      },
+      "targetPosition": "right",
+      "sourcePosition": "left"
+    },
+    "targetNode": {
+      "id": "4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c",
+      "type": "output",
+      "dimensions": {
+        "width": 150,
+        "height": 36
+      },
+      "handleBounds": {
+        "target": [
+          {
+            "id": "4369d74c-f8f7-4ea9-816b-7e0b6f8b1a3c__handle-right",
+            "position": "right",
+            "x": 141.5,
+            "y": 10.5,
+            "width": 15,
+            "height": 15
+          }
+        ]
+      },
+      "computedPosition": {
+        "x": 619,
+        "y": 280,
+        "z": 1
+      },
+      "connectable": "single",
+      "selected": false,
+      "dragging": false,
+      "resizing": false,
+      "initialized": true,
+      "isParent": false,
+      "position": {
+        "x": 0,
+        "y": 80
+      },
+      "data": {
+        "type": "menuButton",
+        "text": "Вариант 1"
+      },
+      "events": {},
+      "targetPosition": "right",
+      "class": [
+        "nodrag",
+        "child"
+      ],
+      "label": "Вариант 1",
+      "parentNode": "b2a04631-9a3a-4705-96e0-7b1a320c5dab"
+    },
+    "sourceX": 292.5,
+    "sourceY": 74,
+    "targetX": 775.5,
+    "targetY": 298
+  }
+]

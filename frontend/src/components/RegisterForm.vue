@@ -18,7 +18,7 @@ export default {
           password: this.password
         }, this.$toast)
         console.log(response)
-        if (!response.data.ok){
+        if (!response.ok){
           console.log('ОШИБКА ТУТ')
           this.errorMessage=response.data.error || 'Ошибка'
         } else {

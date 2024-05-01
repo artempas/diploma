@@ -55,14 +55,14 @@ export function updateLabel(element){
     }
 }
 
-export const typesMap={
+export const typesMap= {
     'init':{
-        type:'output',
+        type:'input',
         connectable: 'single',
         class: ['node'],
         label:{...getLabel('init', 'Начало')},
-        targetPosition: Position.Right,
-        sourcePosition: Position.Left,
+        targetPosition: Position.Left,
+        sourcePosition: Position.Right,
         data:{
             type: 'init',
             text:'Начало'
@@ -73,12 +73,12 @@ export const typesMap={
         class: ['node'],
         // connectable: 'single',
         label: getLabel('send_message', 'Сообщение'),
-        targetPosition: Position.Right,
+        targetPosition: Position.Left,
         dimensions:{
             height:200,
             width:100
         },
-        sourcePosition: Position.Left,
+        sourcePosition: Position.Right,
         data:{
             type: 'send_message',
             text:'Сообщение'
@@ -86,9 +86,9 @@ export const typesMap={
     },
     'assign': {
         type: 'default',
-        targetPosition: Position.Right,
+        targetPosition: Position.Left,
         class: ['node'],
-        sourcePosition: Position.Left,
+        sourcePosition: Position.Right,
         // connectable: 'single',
         data: {
             type: 'assign',
@@ -100,8 +100,8 @@ export const typesMap={
     'input':{
         type: 'default',
         class: ['node'],
-        targetPosition: Position.Right,
-        sourcePosition: Position.Left,
+        targetPosition: Position.Left,
+        sourcePosition: Position.Right,
         label:getLabel('input', 'Ввод\nvariable='),
         // connectable: 'single',
         data:{
@@ -111,10 +111,10 @@ export const typesMap={
         }
     },
     'menu':{
-        type: 'input',
+        type: 'output',
         // connectable: 'single',
         class:['menu-node', 'node'],
-        sourcePosition: Position.Left,
+        targetPosition: Position.Left,
         label: {...getLabel('menu','Меню')},
         data: {
             type:'menu',
@@ -122,9 +122,9 @@ export const typesMap={
         }
     },
     'menuButton':{
-        type: 'output',
+        type: 'input',
         connectable:'single',
-        targetPosition: Position.Right,
+        sourcePosition: Position.Right,
         class:['nodrag', 'child'],
         label:"Вариант 1",
         data:{
@@ -135,13 +135,13 @@ export const typesMap={
     },
     "condition":[
         {
-            type: 'input',
+            type: 'output',
             class: ['node'],
             // connectable: 'single',
             dimensions:{
                 height: 1700
             },
-            sourcePosition: Position.Left,
+            targetPosition: Position.Left,
             label:getLabel('condition','1=1'),
             data: {
                 type: 'condition',
@@ -152,23 +152,31 @@ export const typesMap={
             }
         },
         {
-            type: 'output',
+            type: 'input',
             connectable:'single',
             class:['nodrag', 'child', 'true'],
-            targetPosition: Position.Right,
+            sourcePosition: Position.Right,
             position:{
                 x:0,y:80
             },
-            label:"Истина"
+            label:"Истина",
+            data:{
+                type:'conditionOutput',
+                positive:true
+            }
         },
         {
-            type: 'output',
+            type: 'input',
             connectable:'single',
             class:['nodrag', 'child', 'false'],
-            targetPosition: Position.Right,
+            sourcePosition: Position.Right,
             label:"Ложь",
             position: {
                 x:0,y:120
+            },
+            data: {
+                type:'conditionOutput',
+                positive:false
             }
         }
     ]

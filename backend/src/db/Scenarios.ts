@@ -1,6 +1,7 @@
 import {DataSource, FindOptionsWhere} from 'typeorm';
 import {Scenario} from '../entity/Scenario';
 import {User} from '../entity/User';
+import {Element, ElementType} from '../types/scenario';
 
 export class Scenarios{
     private dataSource: DataSource;
@@ -25,11 +26,19 @@ export class Scenarios{
         return await this.dataSource.manager.save(scenario);
     }
 
-    async updateScenario (id: number, user: User, visual_data: any): Promise<number>{
+    async updateScenario (
+        id: number,
+        user: User,
+        visual_data: any,
+        logical_data: Record<string, Element<ElementType>>
+    ): Promise<number>{
         return (await this.dataSource.manager.update(
             Scenario,
             {id, user},
-            {visual_data: JSON.stringify(visual_data)}
+            {
+                visual_data: JSON.stringify(visual_data),
+                logical_data
+            }
         )).affected ?? 0;
     }
 

@@ -2,6 +2,7 @@ import express from 'express';
 import {authMiddleware} from './auth';
 import db from '../db';
 import connectorsRouter from './connectors';
+import translator from '../interpreter/translator';
 
 
 const scenariosRouter = express.Router();
@@ -131,8 +132,20 @@ async function deleteScenario (req: express.Request<{ scenario_id: number }>, re
 }
 
 async function setVisual (req: express.Request<{scenario_id: number, visual_data: any}>, res: express.Response){
-    const updated = await db.Scenarios.updateScenario(req.params.scenario_id, req.user!, req.body.visual_data) === 1;
-    res.status(updated ? 200 : 404).json({ok: updated});
+    try {
+        const logical_data = translator.visual_to_logical(req.body.visual_data);
+        const updated = await db.Scenarios.updateScenario(
+            req.params.scenario_id,
+            req.user!,
+            req.body.visual_data,
+            logical_data
+        ) === 1;
+        res.status(updated ? 200 : 404).json({ok: updated});
+    } catch (e){
+        console.log(e);
+        res.json({ok: false, error: e});
+    }
+
 }
 
 
