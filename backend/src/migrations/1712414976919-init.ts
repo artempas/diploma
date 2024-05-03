@@ -6,7 +6,6 @@ export class Init1712414976919 implements MigrationInterface {
     public async up (queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "message" (
             "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
-            "platform_id" integer NOT NULL,
             "text" text,
             "message_data" json,
             "sender" character varying(4) NOT NULL,

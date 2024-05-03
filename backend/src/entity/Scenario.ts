@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {Element, ElementType} from '../types/scenario';
 import {User} from './User';
 import {Connector} from './Connector';
@@ -51,9 +51,9 @@ export class Scenario {
         visual_data?: string;
 
     @Column('jsonb', {nullable: true})
-        logical_data?: Record<string|'init', Element<ElementType>>;
+        logical_data: Record<string|'init', Element<ElementType>>;
 
-    @Column('date', {default: 'NOW()'})
+    @CreateDateColumn()
         created_at: string;
 
     @ManyToOne(() => User, (user) => user.scenarios, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})

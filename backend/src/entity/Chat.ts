@@ -43,10 +43,10 @@ export class Chat{
         platform_id: number;
 
     @Column('jsonb')
-        variables?: Record<any, any>;
+        variables: Record<any, any>;
 
     @Column('jsonb')
-        system_data?: SystemData;
+        system_data: SystemData;
 
     @ManyToOne(() => Connector, (c) => c.chats, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         connector: Connector;

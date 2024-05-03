@@ -43,6 +43,10 @@ export class Connector{
     @Column('varchar', {length: 20})
         platform: Platforms;
 
+    @Column('jsonb', {nullable: true})
+        data?: Record<any, any>;
+
+
     @ManyToOne(() => Scenario, (s) => s.connectors, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         scenario: Scenario;
 

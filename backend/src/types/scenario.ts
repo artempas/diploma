@@ -36,9 +36,9 @@ export type MenuData = {
 }
 
 export type ConditionData = {
-    first_value: number | string,
+    first_value: string,
     operation: '>' | '=',
-    second_value: number | string,
+    second_value: string,
     negation: boolean,
     true_next: string,
     false_next: string

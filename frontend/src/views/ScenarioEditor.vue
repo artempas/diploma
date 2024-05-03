@@ -81,10 +81,10 @@ export default {
         this.menu__buttons=this.menu__buttons.filter((e)=>e.id!==id)
       }
     },
-    deleteConnector(event, id){
+    deleteConnector(event, id, data){
       this.$confirm.require({
         target: event.currentTarget,
-        message: 'Вы точно хотите удалить коннектор',
+        message: `Вы точно хотите удалить коннектор ${data.first_name} (@${data.username})`,
         icon: 'pi pi-exclamation-triangle',
         rejectClass: 'p-button-secondary p-button-outlined p-button-sm',
         acceptClass: 'p-button-sm',
@@ -394,7 +394,7 @@ export default {
         <ScenarioEditorSidebar @onDragStart="onDragStart" />
         <div class="topbar-right-buttons p-overlay-badge">
           <div class="topbar-right-button Connectors" v-for="connector in connectors">
-            <i class="pi pi-telegram" v-badge.danger="'x'" style="font-size:50px;" @click="deleteConnector($event, connector.id)"/>
+            <i class="pi pi-telegram" v-badge.danger="'x'" style="font-size:50px;" @click="deleteConnector($event, connector.id, connector.data)"/>
           </div>
           <Button class="topbar-right-button" icon="pi pi-plus" size="large" style="width: 50px" rounded @click="showCreateConnector=true"/>
           <Badge v-if="unsaved_changes" :value="unsaved_changes" severity="warning" style="z-index: 100;"/>

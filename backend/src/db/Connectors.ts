@@ -8,6 +8,10 @@ export class Connectors{
         this.dataSource = ds;
     }
 
+    async updateConnector (connector: Connector): Promise<Connector>{
+        return await this.dataSource.manager.save(connector);
+    }
+
     async findConnectors (filter: FindOptionsWhere<Connector>): Promise<Connector[]>{
         return await this.dataSource.manager.find(Connector, {
             where: filter,

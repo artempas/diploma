@@ -13,9 +13,6 @@ import {Chat} from './Chat';
  *           type: string
  *           format: uuid
  *           description: The unique identifier for the message
- *         platform_id:
- *           type: integer
- *           description: The platform id for the message
  *         text:
  *           type: string
  *           nullable: true
@@ -38,9 +35,6 @@ import {Chat} from './Chat';
 export class Message {
     @PrimaryGeneratedColumn('uuid')
         id: string;
-
-    @Column('int')
-        platform_id: number;
 
     @Column('text', {nullable: true})
         text?: string;

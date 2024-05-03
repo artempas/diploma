@@ -1,1 +1,5 @@
-export type SystemData = Record<any, any>
+export type SystemData = {
+    position: 'init'|string;
+    on_input?: boolean,
+    on_menu?: boolean
+}

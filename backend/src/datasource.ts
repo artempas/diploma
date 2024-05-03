@@ -15,7 +15,7 @@ export const AppDataSource = new DataSource({
     password: process.env.DB_PASS!,
     database: process.env.DB_DATA!,
     synchronize: true,
-    logging: true,
+    // logging: true,
     entities: [
         User,
         Scenario,

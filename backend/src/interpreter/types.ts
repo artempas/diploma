@@ -1,4 +1,5 @@
-import { ElementType} from '../types/scenario';
+import {Element, ElementType} from '../types/scenario';
+import {Chat} from '../entity/Chat';
 
 export type ElementTypeExtended = ElementType | ChildTypes;
 export enum ChildTypes{
@@ -72,3 +73,9 @@ export type edge_type = {
     sourceNode: node_type,
     targetNode: node_type
 };
+
+export type context_type<elementType extends ElementType>={
+        current_element: Element<elementType>,
+        chat: Chat,
+        input?: string
+    }
