@@ -12,7 +12,7 @@
     --vf-node-color: #000000;
 }
 .vue-flow__edge-path{
-    stroke:#00cec9;
+    stroke:#000000;
     stroke-width:2pt;
 }
 .true{
@@ -22,10 +22,6 @@
 .false{
     --vf-node-color: var(--red-500);
     border-width: medium;
-}
-
-.child{
-
 }
 
 .menu-node{

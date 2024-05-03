@@ -10,12 +10,23 @@ const namesMap={
     condition: 'Условие',
 }
 
+function getHighlightedText(text, highlight) {
+    // Split on highlight term and include term into parts, ignore case
+    const parts = text.split(highlight);
+    console.log(parts);
+    return <span> { parts.map((part, i) => 
+        <span key={i} style={part.match(highlight) ? { color: '#2450a5' } : {} }>
+            { part }
+        </span>)
+    } </span>;
+}
+
 export function getLabel(element, content){
     // return h('div', [h(Chip, {label: namesMap[element]}), h('p', content)])
     return <div class={`${element}-label node-label`}>
         <h4 class='node-label-name'>{namesMap[element].toString()}</h4>
             <p class='node-label-content'>
-                {content}
+                {getHighlightedText(content, /(\$\{[A-Za-z_\-0-9]+})/gi)}
             </p>
     </div>
 }
