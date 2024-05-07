@@ -2,6 +2,7 @@ import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'type
 import {SystemData} from '../types/chat';
 import {Connector} from './Connector';
 import {Message} from './Message';
+import { DbAwareColumn } from '../db/tools';
 
 /**
  * @openapi
@@ -42,15 +43,15 @@ export class Chat{
     @Column('int')
         platform_id: number;
 
-    @Column('jsonb')
+    @DbAwareColumn({type: 'jsonb'})
         variables: Record<any, any>;
 
-    @Column('jsonb')
+    @DbAwareColumn({type: 'jsonb'})
         system_data: SystemData;
 
     @ManyToOne(() => Connector, (c) => c.chats, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         connector: Connector;
 
     @OneToMany(() => Message, (m) => m.chat)
-        messages: Message;
+        messages: Message[];
 }

@@ -6,7 +6,7 @@ import {Connectors} from './Connectors';
 import {Messages} from './Messages';
 import {Chats} from './Chats';
 
-class Db {
+export class Db {
     Users: Users;
 
     Connectors: Connectors;

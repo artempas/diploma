@@ -141,14 +141,21 @@ export default {
       }
       updateLabel(this.element);
       if (this.element.data.type==='menu'){
-        updateChildLocation(this.menu__child_elements)
+        this.updateChildLocation(this.menu__child_elements, this.element)
       } else if (this.element.data.type==='condition'){
-        updateChildLocation(this.schemaData.filter((e)=>e.parentNode===this.element.id))
+        this.updateChildLocation(this.schemaData.filter((e)=>e.parentNode===this.element.id), this.element);
       }
       this.unsaved_changes++;
       this.showModal=false
     },
-    updateChildLocation(){},
+    updateChildLocation(children, parent){
+      console.log(parent);
+      let counter=0;
+      for (let i of children){
+        i.position.y=parent.dimensions.height+40*counter;
+        counter++;
+      }
+    },
     saveChildren(){
       if (!this.menu__buttons.length){
         throw new Error('Нельзя сохранить элемент меню без кнопок');

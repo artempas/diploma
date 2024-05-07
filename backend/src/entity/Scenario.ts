@@ -2,6 +2,7 @@ import {Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGenerated
 import {Element, ElementType} from '../types/scenario';
 import {User} from './User';
 import {Connector} from './Connector';
+import { DbAwareColumn } from '../db/tools';
 
 /**
  * @openapi
@@ -50,7 +51,7 @@ export class Scenario {
     @Column('text', {nullable: true})
         visual_data?: string;
 
-    @Column('jsonb', {nullable: true})
+    @DbAwareColumn({type: 'jsonb', nullable: true})
         logical_data: Record<string|'init', Element<ElementType>>;
 
     @CreateDateColumn()

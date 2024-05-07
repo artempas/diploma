@@ -9,12 +9,18 @@ import {
 import fetch from 'node-fetch';
 import {Connector} from '../entity/Connector';
 import {createHash} from 'crypto';
-import db from '../db';
+import { Db } from '../db';
 
 export default class Telegram implements Adapter {
+    db: Db;
+
+    constructor (db: Db){
+        this.db = db;
+    }
+
     async handleWebhook (connector: Connector, webhook: TelegramWebhook): Promise<AdapterMessage> {
         if (webhook.message){
-            const chat = await db.Chats.assertChat({
+            const chat = await this.db.Chats.assertChat({
                 platform_id: webhook.message.chat.id,
                 first_name: webhook.message.chat.first_name,
                 last_name: webhook.message.chat.last_name,
@@ -33,7 +39,7 @@ export default class Telegram implements Adapter {
         const getMe = this.makeRequest(connector, 'getMe', {}).then(async (me) => {
             if (!me.ok) throw new Error('Not able to get ME');
             connector.data = me.result;
-            await db.Connectors.updateConnector(connector);
+            await this.db.Connectors.updateConnector(connector);
         });
         const secret_token = await createHash('md5').update(connector.token).digest('hex');
         console.log(secret_token);
@@ -45,7 +51,7 @@ export default class Telegram implements Adapter {
         if (response.ok){
             return true;
         } else {
-            throw new Error(`Request to telegram API failed: ${response}`);
+            throw new Error(`Request to telegram API failed: ${JSON.stringify(response)}`);
         }
     }
 
@@ -64,9 +70,10 @@ export default class Telegram implements Adapter {
             };
         }
         const res = await this.makeRequest(await message.chat.connector, 'sendMessage', body);
-        if (!res.ok) throw new Error(`Unable to send message ${JSON.stringify(message)}.\nResponse:${res}`);
+        if (!res.ok) throw new Error(`Unable to send message ${JSON.stringify(message)}.\nResponse:${JSON.stringify(res)}`);
+        console.log(res);
         return {
-            text: res.text,
+            text: res.result.text,
             chat: message.chat,
             buttons: message.buttons
         };

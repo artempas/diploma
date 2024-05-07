@@ -3,6 +3,7 @@ import {Adapter, AdapterMessage, TelegramWebhook} from './types';
 import {Connector} from '../entity/Connector';
 import Telegram from './Telegram';
 import {Platforms} from '../types/common';
+import db from '../db';
 
 
 export default class LimitedAdapter implements Adapter{
@@ -12,7 +13,7 @@ export default class LimitedAdapter implements Adapter{
         reservoirRefreshInterval: 1100, // a bit bigger to not hit limit
     });
 
-    private TelegramAdapter = new Telegram();
+    private TelegramAdapter = new Telegram(db);
 
     public afterMessageSent: ((message: AdapterMessage)=> Promise<any>)[] = [];
 

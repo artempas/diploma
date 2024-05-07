@@ -1,18 +1,30 @@
 import Bottleneck from 'bottleneck';
-import {AdapterMessage} from '../adapter/types';
+import {Adapter, AdapterMessage} from '../adapter/types';
 import {ElementType} from '../types/scenario';
 import {context_type} from './types';
 import LimitedAdapter from '../adapter/limiter';
-import db from '../db';
+import db, { Db } from '../db';
 
 export class Interpreter{
     private limiter = new Bottleneck.Group({
         maxConcurrent: 1
     });
 
+    private adapter: Adapter = LimitedAdapter.getInstance();
+
     private static instance: Interpreter;
 
+    private db: Db = db;
+
     private constructor () {
+    }
+
+    public setAdapter (adapter: Adapter){
+        this.adapter = adapter;
+    }
+
+    public setDb (db: Db){
+        this.db = db;
     }
 
     public static getInstance (): Interpreter{
@@ -34,7 +46,7 @@ export class Interpreter{
         return text;
     }
 
-    async handleElement (message: AdapterMessage){
+    async handleElement (message: AdapterMessage, execute_single: boolean = false){
         console.log(`Handling Message: ${JSON.stringify(message)}`);
         const scenario = message.chat.connector.scenario;
         const context: context_type<ElementType> = {
@@ -48,6 +60,7 @@ export class Interpreter{
         while (execute_next){
             // @ts-ignore
             execute_next = await this.elements_map[context.current_element.element_type](context);
+            execute_next = execute_single ? false : execute_next;
             context.chat = await db.Chats.saveChat(context.chat);
             context.current_element =
                 scenario.logical_data[message.chat.system_data.position ?? 'init']
@@ -58,7 +71,7 @@ export class Interpreter{
 
     elements_map: {[elementType in ElementType]: (context: context_type<elementType>)=> Promise<boolean>} = {
         [ElementType.init]: async (context) => {
-            await LimitedAdapter.getInstance().sendMessage({
+            await this.adapter.sendMessage({
                 chat: context.chat,
                 text: this.insertVariables(context.current_element.data.text, context.chat.variables)
             });
@@ -66,7 +79,7 @@ export class Interpreter{
             return true;
         },
         [ElementType.send_message]: async (context) => {
-            await LimitedAdapter.getInstance().sendMessage({
+            await this.adapter.sendMessage({
                 chat: context.chat,
                 text: this.insertVariables(context.current_element.data.text, context.chat.variables)
             });
@@ -80,7 +93,7 @@ export class Interpreter{
                 context.chat.system_data.on_input = false;
                 return true;
             }
-            await LimitedAdapter.getInstance().sendMessage({
+            await this.adapter.sendMessage({
                 chat: context.chat,
                 text: this.insertVariables(context.current_element.data.message, context.chat.variables)
             });
@@ -97,7 +110,7 @@ export class Interpreter{
                 context.chat.system_data.on_menu = false;
                 return true;
             }
-            await LimitedAdapter.getInstance().sendMessage({
+            await this.adapter.sendMessage({
                 chat: context.chat,
                 text: this.insertVariables(context.current_element.data.text, context.chat.variables),
                 buttons: context.current_element.data.buttons.map((btn) => ({
@@ -110,6 +123,7 @@ export class Interpreter{
         [ElementType.assign]: async (context) => {
             context.chat.variables[context.current_element.data.variable] =
                 this.insertVariables(context.current_element.data.value, context.chat.variables);
+            context.chat.system_data.position = context.current_element.data.next;
             return true;
         },
         [ElementType.condition]: async (context) => {

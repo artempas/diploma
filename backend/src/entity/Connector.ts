@@ -2,6 +2,7 @@ import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'type
 import {Platforms} from '../types/common';
 import {Scenario} from './Scenario';
 import {Chat} from './Chat';
+import { DbAwareColumn } from '../db/tools';
 
 /**
  * @openapi
@@ -43,7 +44,7 @@ export class Connector{
     @Column('varchar', {length: 20})
         platform: Platforms;
 
-    @Column('jsonb', {nullable: true})
+    @DbAwareColumn({type: 'jsonb', nullable: true})
         data?: Record<any, any>;
 
 

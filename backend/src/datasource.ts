@@ -29,4 +29,21 @@ export const AppDataSource = new DataSource({
     ],
 });
 
-AppDataSource.initialize().then((_) => console.log('Connected to DB'));
+export const TestDataSource = new DataSource({
+    type: 'sqlite',
+    database: ':memory:',
+    synchronize: true,
+    entities: [
+        User,
+        Scenario,
+        Connector,
+        Chat,
+        Message
+    ],
+    migrations: [
+        'src/migrations/*.ts'
+    ],
+});
+if (process.env.NODE_ENV !== 'test') {
+    AppDataSource.initialize().then((_) => console.log('Connected to DB'));
+}
