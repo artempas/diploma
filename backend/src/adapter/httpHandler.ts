@@ -7,6 +7,8 @@ adapterRouter.post('/:connector_id(\\d+)',
     async (req, res) => {
         const connector = (await db.Connectors.findConnectors({
             id: Number(req.params.connector_id)
+        }, {
+            scenario: true
         }))[0];
         if (!connector)
             return res.status(404).send('Connector not found');

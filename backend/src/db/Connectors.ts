@@ -1,4 +1,4 @@
-import {DataSource, FindOptionsWhere} from 'typeorm';
+import {DataSource, FindOptionsRelations, FindOptionsWhere} from 'typeorm';
 import {Connector} from '../entity/Connector';
 
 export class Connectors{
@@ -12,9 +12,13 @@ export class Connectors{
         return await this.dataSource.manager.save(connector);
     }
 
-    async findConnectors (filter: FindOptionsWhere<Connector>): Promise<Connector[]>{
+    async findConnectors (
+        filter: FindOptionsWhere<Connector>,
+        relations: FindOptionsRelations<Connector> = {}
+    ): Promise<Connector[]>{
         return await this.dataSource.manager.find(Connector, {
             where: filter,
+            relations
         });
     }
 

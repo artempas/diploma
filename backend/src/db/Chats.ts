@@ -17,14 +17,16 @@ export class Chats{
         username?: string
     }, connector: Connector): Promise<Chat>{
         let entity = await this.dataSource.manager.findOne(Chat, {
-            relations:{
-                connector:{
-                    scenario:true
+            relations: {
+                connector: {
+                    scenario: true
                 }
             },
             where: {
                 platform_id: chat.platform_id,
-                connector
+                connector: {
+                    id: connector.id
+                }
             }
         });
         if (!entity){

@@ -103,10 +103,14 @@ export class Interpreter{
         [ElementType.menu]: async (context) => {
             if (
                 context.chat.system_data.on_menu
-                && context.current_element.data.buttons.filter((btn) => btn.text === context.input).length
+                && context.current_element.data.buttons.filter(
+                    (btn) => this.insertVariables(btn.text, context.chat.variables) === context.input
+                ).length
             ){
                 context.chat.system_data.position
-                    = context.current_element.data.buttons.filter((btn) => btn.text === context.input)[0]!.next;
+                    = context.current_element.data.buttons.filter(
+                        (btn) => this.insertVariables(btn.text, context.chat.variables) === context.input
+                    )[0]!.next;
                 context.chat.system_data.on_menu = false;
                 return true;
             }
