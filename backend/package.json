@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "ts-jest": "ts-jest",
+    "start": "node ./out/src/main.js",
     "dev": "nodemon src/main.ts",
     "compile": "tsc",
     "env": "node_modules/@tka85/dotenvenc/bin/dotenvenc",
